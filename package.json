@@ -1,0 +1,18 @@
+{
+  "name": "redcap.js",
+  "version": "0.0.1",
+  "description": "A module for interacting with REDCap",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.iu.edu/csi/redcap.js.git"
+  },
+  "keywords": [
+    "redcap"
+  ],
+  "author": "",
+  "license": "ISC"
+}
