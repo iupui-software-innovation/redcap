@@ -9,4 +9,4 @@ var callback = function(data) {
 	console.log(data);
 };
 
-redcap.users.exportInfo(params, callback);
+redcap.metadata.exportInfo(params, callback);
