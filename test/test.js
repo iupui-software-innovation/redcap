@@ -4,7 +4,10 @@
 // This is just to make sure stuff even works
 var redcap = require('../lib/redcap.js');
 
-var params = {};
+var params = {
+	field: '',
+	form: ''
+};
 var callback = function(data) {
 	console.log(data);
 };
