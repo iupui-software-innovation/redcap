@@ -9,5 +9,4 @@ var callback = function(data) {
 	console.log(data);
 };
 
-// Change as needed to test whatever util you'd like to test
 redcap.users.exportInfo(params, callback);
