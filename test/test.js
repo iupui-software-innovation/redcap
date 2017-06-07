@@ -10,12 +10,16 @@ var assert = require('assert');
 var params = {};
 
 var callback = function(data, err) {
-	if (err) done(err);
-	else done();
+  console.log(data);
+
 };
 
 describe('Users test', function(){
 	it('Should output all users', function() {
 		redcap.users.export(params, callback);
+	});
+
+	it('Should create a new user', function() {
+		redcap.users.import(params, callback);
 	});
 });
