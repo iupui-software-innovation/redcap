@@ -15,9 +15,3 @@ var callback = function(data, err) {
 	if (err) done(err);
 	else done();
 };
-
-describe('Metadata test', function(){
-	it('Should output all metadata', function(done) {
-		redcap.metadata.export(params, callback);
-	});
-});
