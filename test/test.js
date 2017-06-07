@@ -16,6 +16,6 @@ var callback = function(data, err) {
 
 describe('Users test', function(){
 	it('Should output all users', function() {
-		redcap.users.exportInfo(params, callback);
+		redcap.users.export(params, callback);
 	});
 });
