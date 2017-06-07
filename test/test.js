@@ -18,6 +18,6 @@ var callback = function(data, err) {
 
 describe('Metadata test', function(){
 	it('Should output all metadata', function(done) {
-		redcap.metadata.exportInfo(params, callback);
+		redcap.metadata.export(params, callback);
 	});
 });
