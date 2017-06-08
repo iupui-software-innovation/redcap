@@ -6,9 +6,8 @@ const exportInfo = require('../../../lib/projects/exportInfo.js');
 // Temporary configuration import - is there a better way?
 const baseConfig = require('../config.json');
 
-describe('projects/exportInfo', function() {
+describe('projects#exportInfo', function() {
 	it('should be a function', function() {
 		expect(exportInfo).to.be.a('function');
 	});
-
 });
