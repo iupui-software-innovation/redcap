@@ -4,7 +4,7 @@
   "description": "A module for interacting with REDCap",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --recursive tests/lib --reporter spec"
   },
   "repository": {
     "type": "git",
