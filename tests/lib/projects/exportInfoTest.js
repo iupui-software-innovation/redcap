@@ -23,9 +23,9 @@ describe('projects#exportInfo', function() {
 	it('should return project info', function(done) {
 		var exportFunc = exportInfo(utils);
 
-		// Can't test err being {}, it breaks for some reason even though it is absolutely {} here
 		exportFunc({}, function(err, res) {
-			expect(res).to.not.equal({});
+			expect(err).to.be.empty;
+			expect(res).to.not.be.empty;
 			expect(res.project_title).to.equal('REDCap.js (Test)');
 			done();
 		});

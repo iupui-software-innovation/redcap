@@ -19,7 +19,8 @@ describe('projects#importInfo', function() {
 
 	it('should provide an error if no values are passed', function(done) {
 		importInfo({data:{}}, function(err, res) {
-			expect(err).to.not.equal({});
+			expect(err).to.not.be.empty;
+			expect(res).to.be.empty;
 			done();
 		});
 	});
@@ -30,6 +31,7 @@ describe('projects#importInfo', function() {
 				surveys_enabled: 0
 			}
 			importInfo({data: JSON.stringify(data)}, function(err, res) {
+				expect(err).to.be.empty;
 				expect(res).to.equal(1);
 				done();
 			});
@@ -41,6 +43,7 @@ describe('projects#importInfo', function() {
 				project_name: 'REDCap.js (Test)'
 			}
 			importInfo({data: JSON.stringify(data)}, function(err, res) {
+				expect(err).to.be.empty;
 				expect(res).to.equal(2);
 				done();
 			});
