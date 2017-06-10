@@ -126,7 +126,7 @@ describe('utils#post', function() {
 
 		it('should give the data to a valid API request', function(done) {
 			var body = {
-				content: 'project',
+				content: 'user',
 				format: 'json',
 				returnFormat: 'json'
 			}
