@@ -3,7 +3,12 @@
 const expect = require('chai').expect;
 const importInfoModule = require('../../../lib/projects/importInfo.js');
 
-const config = require('../config.json');
+const config = {
+	host: 'redcap.uits.iu.edu',
+	path: '/api/',
+	token: process.env.REDCAPI_API_KEY
+}
+
 const utils = require('../../../lib/utils')(config);
 
 describe('projects#importInfo', function() {
