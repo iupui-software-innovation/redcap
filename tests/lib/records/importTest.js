@@ -45,6 +45,7 @@ describe('records#import', function() {
 	});
 
 	it('should import a record and return number of imported records', function(done) {
-
+		console.log('Not implemented yet');
+		done();
 	});
 });
