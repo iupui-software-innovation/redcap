@@ -4,27 +4,31 @@ const expect = require('chai').expect;
 const metadataModule = require('../../../lib/metadata');
 const utils = require('../../../lib/utils');
 
-context('metadata', function() {
-	describe('module.export', function() {
+describe('metadata', function() {
+	it('should be a function', function() {
+		expect(metadataModule).to.be.a('function');
+	});
+
+	var metadata = metadataModule(utils);
+
+	var keys = [
+		'export',
+		'import'
+	];
+
+	it('should return an object with keys', function() {
+		expect(metadata).to.be.an('object').that.has.keys(keys);
+	});
+
+	describe('#export', function() {
 		it('should be a function', function() {
-			expect(metadataModule).to.be.a('function');
+			expect(metadata.export).to.be.a('function');
 		});
-
-		describe('constructor', function() {
-			it('should return an object', function() {
-				expect(metadataModule(utils)).to.be.an('object');
-			});
-		});
-
-		describe('#export', function() {
-			it('should be a function', function() {
-				expect(metadataModule(utils).export).to.be.a('function');
-			});
-		});
-		describe('#import', function() {
-			it('should be a function', function() {
-				expect(metadataModule(utils).import).to.be.a('function');
-			});
+	});
+	
+	describe('#import', function() {
+		it('should be a function', function() {
+			expect(metadata.import).to.be.a('function');
 		});
 	});
 });
