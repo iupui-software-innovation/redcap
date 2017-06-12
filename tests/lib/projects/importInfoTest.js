@@ -6,7 +6,7 @@ const importInfoModule = require('../../../lib/projects/importInfo.js');
 const config = {
 	host: 'redcap.uits.iu.edu',
 	path: '/api/',
-	token: process.env.REDCAPI_API_KEY
+	token: process.env.REDCAP_API_KEY
 }
 
 const utils = require('../../../lib/utils')(config);
