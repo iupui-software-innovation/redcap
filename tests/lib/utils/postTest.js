@@ -84,8 +84,8 @@ describe('utils#post', function() {
 				token: "notoken"
 			}
 			var post = postExport(config);
-			post({}, function(err, res) {
-				expect(err).to.be.an('object').that.has.property('error');
+			post({}, function(error, res) {
+				expect(error.errno).to.equal("ECONNREFUSED");
 				expect(res).to.be.empty;
 				done();
 			});
