@@ -44,8 +44,30 @@ describe('records#import', function() {
 		});
 	});
 
-	it('should import a record and return number of imported records', function(done) {
-		console.log('Not implemented yet');
-		done();
+	describe('should import a record and return number of imported records', function() {
+		it('for one record', function(done) {
+			var data = {
+				records: [
+					{
+						record: 1,
+						field_name: "does_the_practice_monitor",
+						value: 0
+					}
+				]
+			};
+
+			var opts = {
+				data: data,
+				type: 'eav',
+				overwriteBehavior: 'normal'
+			};
+
+			importRecord(opts, function(error, res) {
+				console.log(error);
+				expect(error).to.be.an('object').that.is.empty;
+				expect(res).to.be.a('number').that.equals(1);
+				done();
+			});
+		});
 	});
 });
