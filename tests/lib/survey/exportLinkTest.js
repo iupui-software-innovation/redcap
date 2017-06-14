@@ -28,9 +28,9 @@ describe('survey#exportLink', function() {
 			record: '1'
 		}
 		exportFunc(params, function(err, res) {
-			expect(err).to.be.empty;
-			expect(res).to.not.be.empty;
-			expect(res).to.be.an('object');
+			expect(err).to.be.null;
+			console.log(res);
+			expect(res).to.be.a('string');
 			done();
 		});
 	});
