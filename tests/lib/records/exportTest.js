@@ -34,10 +34,11 @@ describe('records#export', function() {
 		var params = {type: 'flat'};
 
 		exportRecord(params, function(err, res) {
-			expect(err).to.be.an('object').that.is.empty;
+			expect(err).to.be.null;
 			expect(res).to.be.an('array').that.is.not.empty;
 
 			done();
+			return;
 		});
 	});
 
@@ -48,11 +49,12 @@ describe('records#export', function() {
 		}
 
 		exportRecord(params, function(err, res) {
-			expect(err).to.be.an('object').that.is.empty;
+			expect(err).to.be.null;
 			expect(res).to.be.an('array').that.is.not.empty;
 			expect(res[0]).to.be.an('object').that.has.property('record').that.equals('1');
 
 			done();
+			return;
 		});
 	});
 	it('should ignore invalid parameters', function(done) {
@@ -62,10 +64,11 @@ describe('records#export', function() {
 		}
 
 		exportRecord(params, function(err, res) {
-			expect(err).to.be.an('object').that.is.empty;
+			expect(err).to.be.null;
 			expect(res).to.be.an('array').that.is.not.empty;
 
 			done();
+			return;
 		});
 	});
 });
