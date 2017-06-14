@@ -31,11 +31,11 @@ describe('instruments#importMappings', function() {
 
 	describe('should return the number of values updated', function() {
 		it('for 1 update', function(done) {
-			var data = { 
-				arm_num: 1,
-				unique_event_name: 'test arm',
-				form: 'test_followup_survey'
-			}
+			var data = [{ 
+				"arm_num": 1,
+				"unique_event_name": "event_1_arm_1",
+				"form": "test_followup_survey"
+			}]
 			importMappings({data: JSON.stringify(data)}, function(err, res) {
 				expect(err).to.be.empty;
 				expect(res).to.equal(1);

@@ -1,5 +1,0 @@
-{
-  "host":"redcap server host (e.g. redcap.momshouse.gov)",
-  "path":"redcap api path (e.g. /api/)",
-  "token":"api key"
-}
