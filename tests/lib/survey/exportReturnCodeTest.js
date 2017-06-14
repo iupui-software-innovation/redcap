@@ -30,7 +30,7 @@ describe('survey#exportReturnCode', function() {
 		exportFunc(params, function(err, res) {
 			expect(err).to.be.empty;
 			expect(res).to.not.be.empty;
-			expect(res).to.be.a('string');
+			expect(res).to.be.an('object');
 			done();
 		});
 	});
