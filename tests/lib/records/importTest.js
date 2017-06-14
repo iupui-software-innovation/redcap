@@ -27,7 +27,7 @@ describe('records#import', function() {
 		}
 		importRecord(params, function(err, res) {
 			expect(err).to.be.an('object').that.has.property('error').that.equals('Required parameter missing: type');
-			expect(res).to.be.empty;
+			expect(res).to.be.null;
 			done();
 		});
 	});
@@ -39,7 +39,7 @@ describe('records#import', function() {
 		}
 		importRecord(params, function(err, res) {
 			expect(err).to.be.an('object').that.has.property('error').that.equals('Required parameter missing: overwriteBehavior');
-			expect(res).to.be.empty;
+			expect(res).to.be.null;
 			done();
 		});
 	});
@@ -64,7 +64,7 @@ describe('records#import', function() {
 
 			importRecord(opts, function(error, res) {
 				console.log(error);
-				expect(error).to.be.an('object').that.is.empty;
+				expect(error).to.be.null;
 				expect(res).to.be.a('number').that.equals(1);
 				done();
 			});
