@@ -1,7 +1,7 @@
 'use strict';
 
 const expect = require('chai').expect;
-const importInfoModule = require('../../../lib/instruments/importMappings.js');
+const importMappingsModule = require('../../../lib/instruments/importMappings.js');
 
 const config = {
 	host: 'redcap.uits.iu.edu',
@@ -10,19 +10,19 @@ const config = {
 }
 const utils = require('../../../lib/utils')(config);
 
-describe('instruments#importInfo', function() {
+describe('instruments#importMappings', function() {
 	it('should be a function', function() {
-		expect(importInfoModule).to.be.a('function');
+		expect(importMappingsModule).to.be.a('function');
 	});
 
-	const importInfo = importInfoModule(utils);
+	const importMappings = importMappingsModule(utils);
 
 	it('should return a function', function() {
-		expect(importInfo).to.be.a('function');
+		expect(importMappings).to.be.a('function');
 	});
 
 	it('should provide an error if no values are passed', function(done) {
-		importInfo({data:{}}, function(err, res) {
+		importMappings({data:{}}, function(err, res) {
 			expect(err).to.not.be.empty;
 			expect(res).to.be.empty;
 			done();
@@ -32,9 +32,11 @@ describe('instruments#importInfo', function() {
 	describe('should return the number of values updated', function() {
 		it('for 1 update', function(done) {
 			var data = { 
-				arm_num: 1
+				arm_num: 1,
+				unique_event_name: 'test arm',
+				form: 'test_followup_survey'
 			}
-			importInfo({data: JSON.stringify(data)}, function(err, res) {
+			importMappings({data: JSON.stringify(data)}, function(err, res) {
 				expect(err).to.be.empty;
 				expect(res).to.equal(1);
 				done();
