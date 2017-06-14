@@ -20,13 +20,17 @@ describe('survey#exportLink', function() {
 		expect(exportFunc).to.be.a('function');
 	});
 
-	it('should return project info', function(done) {
+	it('should return a link to the survey', function(done) {
 		var exportFunc = exportLink(utils);
-
-		exportFunc({}, function(err, res) {
+		var params = {
+			instrument: 'effective_transitional_care_checklist',
+			event: '',
+			record: '1'
+		}
+		exportFunc(params, function(err, res) {
 			expect(err).to.be.empty;
 			expect(res).to.not.be.empty;
-			expect(res.project_title).to.equal('REDCap.js (Test)');
+			expect(res).to.be.a('string');
 			done();
 		});
 	});
