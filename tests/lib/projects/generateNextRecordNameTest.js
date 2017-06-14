@@ -22,7 +22,7 @@ describe('projects#generateNextRecordName', function() {
 
 	it('should provide the next record name', function(done) {
 		generateName({}, function(error, msg) {
-			expect(error).to.be.empty;
+			expect(error).to.be.null;
 			expect(msg).to.be.a('number');
 			done();
 		});
