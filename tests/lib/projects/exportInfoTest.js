@@ -24,7 +24,7 @@ describe('projects#exportInfo', function() {
 		var exportFunc = exportInfo(utils);
 
 		exportFunc({}, function(err, res) {
-			expect(err).to.be.empty;
+			expect(err).to.be.null;
 			expect(res).to.not.be.empty;
 			expect(res.project_title).to.equal('REDCap.js (Test)');
 			done();

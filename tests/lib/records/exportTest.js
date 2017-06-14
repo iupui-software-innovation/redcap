@@ -33,11 +33,12 @@ describe('records#export', function() {
 	it('should return all records if no options are given', function(done) {
 		var params = {type: 'flat'};
 
-		exportRecord(params, function(error, res) {
-			expect(error).to.be.an('object').that.is.empty;
+		exportRecord(params, function(err, res) {
+			expect(err).to.be.null;
 			expect(res).to.be.an('array').that.is.not.empty;
 
 			done();
+			return;
 		});
 	});
 
@@ -47,12 +48,13 @@ describe('records#export', function() {
 			records: ['1']
 		}
 
-		exportRecord(params, function(error, res) {
-			expect(error).to.be.an('object').that.is.empty;
+		exportRecord(params, function(err, res) {
+			expect(err).to.be.null;
 			expect(res).to.be.an('array').that.is.not.empty;
 			expect(res[0]).to.be.an('object').that.has.property('record').that.equals('1');
 
 			done();
+			return;
 		});
 	});
 	it('should ignore invalid parameters', function(done) {
@@ -61,11 +63,12 @@ describe('records#export', function() {
 			foo: 'bar'
 		}
 
-		exportRecord(params, function(error, res) {
-			expect(error).to.be.an('object').that.is.empty;
+		exportRecord(params, function(err, res) {
+			expect(err).to.be.null;
 			expect(res).to.be.an('array').that.is.not.empty;
 
 			done();
+			return;
 		});
 	});
 });
