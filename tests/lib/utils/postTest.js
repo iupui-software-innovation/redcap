@@ -86,7 +86,7 @@ describe('utils#post', function() {
 			var post = postExport(config);
 			post({}, function(error, res) {
 				expect(error.errno).to.equal("ECONNREFUSED");
-				expect(res).to.be.empty;
+				expect(res).to.be.null;
 				done();
 			});
 		});
@@ -132,14 +132,13 @@ describe('utils#post', function() {
 			}
 			var post = postExport(baseConfig);
 			post(body, function(err, res) {
-				expect(err).to.be.empty;
+				expect(err).to.be.null;
 				expect(res).to.not.be.empty;
 				done();
 			});
 		});
 
 		// This test breaks stuff and is terrible. It tries to run twice?
-		/*
 		it('should give an error if the path was incorrect', function(done) {
 			var config = {
 				host: baseConfig.host,
@@ -148,10 +147,10 @@ describe('utils#post', function() {
 			}
 			var post = postExport(config);
 			post({}, function(err, res) {
-				expect(err).to.not.be.empty;
+				expect(err).to.not.be.null;
 				done();
+				return;
 			});
 		});
-		*/
 	});
 });
