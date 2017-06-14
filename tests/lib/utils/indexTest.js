@@ -21,6 +21,7 @@ describe('utils', function() {
 
 			var keys = [
 				'post',
+				'postPlaintext'
 			];
 
 			expect(utils).to.have.keys(keys);
