@@ -29,7 +29,6 @@ describe('survey#exportLink', function() {
 		}
 		exportFunc(params, function(err, res) {
 			expect(err).to.be.null;
-			console.log(res);
 			expect(res).to.be.a('string');
 			done();
 		});

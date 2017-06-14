@@ -86,7 +86,7 @@ describe('utils#post', function() {
 			var post = postExport(config);
 			post({}, function(error, res) {
 				expect(error.errno).to.equal("ECONNREFUSED");
-				expect(res).to.be.empty;
+				expect(res).to.be.null;
 				done();
 			});
 		});
@@ -132,8 +132,8 @@ describe('utils#post', function() {
 			}
 			var post = postExport(baseConfig);
 			post(body, function(err, res) {
-				expect(err).to.be.empty;
-				expect(res).to.not.be.empty;
+				expect(err).to.be.null;
+				expect(res).to.not.be.null;
 				done();
 			});
 		});
