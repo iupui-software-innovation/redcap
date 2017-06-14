@@ -20,13 +20,13 @@ describe('instruments#exportMappings', function() {
 		expect(exportFunc).to.be.a('function');
 	});
 
-	it('should return project info', function(done) {
+	it('should return an array of mappings', function(done) {
 		var exportFunc = exportMappings(utils);
 
 		exportFunc({}, function(err, res) {
 			expect(err).to.be.empty;
 			expect(res).to.not.be.empty;
-			expect(res.arm_num).to.equal('');
+			expect(res).to.be.an('array');
 			done();
 		});
 	});

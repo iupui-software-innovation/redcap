@@ -20,7 +20,7 @@ describe('instruments#exportPdf', function() {
 		expect(exportFunc).to.be.a('function');
 	});
 
-	it('should return project info', function(done) {
+	it('should return a PDF file', function(done) {
 		var exportFunc = exportPdf(utils);
 
 		exportFunc({}, function(err, res) {

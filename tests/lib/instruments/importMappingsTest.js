@@ -3,7 +3,11 @@
 const expect = require('chai').expect;
 const importInfoModule = require('../../../lib/instruments/importMappings.js');
 
-const config = require('../config.json');
+const config = {
+	host: 'redcap.uits.iu.edu',
+	path: '/api/',
+	token: process.env.REDCAP_API_KEY
+}
 const utils = require('../../../lib/utils')(config);
 
 describe('instruments#importInfo', function() {
@@ -33,18 +37,6 @@ describe('instruments#importInfo', function() {
 			importInfo({data: JSON.stringify(data)}, function(err, res) {
 				expect(err).to.be.empty;
 				expect(res).to.equal(1);
-				done();
-			});
-		});
-
-		it('for 2 updates', function(done) {
-			var data = {
-				arm_num: 0,
-				unique_event_name: 'test_arm'
-			}
-			importInfo({data: JSON.stringify(data)}, function(err, res) {
-				expect(err).to.be.empty;
-				expect(res).to.equal(2);
 				done();
 			});
 		});
