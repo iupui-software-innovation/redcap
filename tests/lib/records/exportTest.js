@@ -21,20 +21,20 @@ describe('records#export', function() {
 		expect(exportRecord).to.be.a('function');
 	});
 
-	it('should generate an error if "type" is missing from parameters', function(done) {
+	it('should generate an erroror if "type" is missing from parameters', function(done) {
 		var params = {};
 
-		exportRecord(params, function(err, res) {
-			expect(err).to.be.an('object').that.has.property('error');
+		exportRecord(params, function(error, res) {
+			expect(error).to.be.an('object').that.has.property('error');
 			done();
 		});
 	});
 
-	it('should return all records if no options are given?', function(done) {
+	it('should return all records if no options are given', function(done) {
 		var params = {type: 'flat'};
 
-		exportRecord(params, function(err, res) {
-			expect(err).to.be.an('object').that.is.empty;
+		exportRecord(params, function(error, res) {
+			expect(error).to.be.an('object').that.is.empty;
 			expect(res).to.be.an('array').that.is.not.empty;
 
 			done();
@@ -47,8 +47,8 @@ describe('records#export', function() {
 			records: ['1']
 		}
 
-		exportRecord(params, function(err, res) {
-			expect(err).to.be.an('object').that.is.empty;
+		exportRecord(params, function(error, res) {
+			expect(error).to.be.an('object').that.is.empty;
 			expect(res).to.be.an('array').that.is.not.empty;
 			expect(res[0]).to.be.an('object').that.has.property('record').that.equals('1');
 
@@ -61,8 +61,8 @@ describe('records#export', function() {
 			foo: 'bar'
 		}
 
-		exportRecord(params, function(err, res) {
-			expect(err).to.be.an('object').that.is.empty;
+		exportRecord(params, function(error, res) {
+			expect(error).to.be.an('object').that.is.empty;
 			expect(res).to.be.an('array').that.is.not.empty;
 
 			done();
