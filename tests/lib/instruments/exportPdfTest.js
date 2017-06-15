@@ -26,7 +26,7 @@ describe('instruments#exportPdf', function() {
 			instrument: '',
 			event: '',
 			record: '',
-			directory: 'lib/instruments/',
+			directory: '',
 			fileName: 'test'
 		}
 		exportFunc(params, function(err, res) {
