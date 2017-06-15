@@ -24,7 +24,7 @@ describe('utils#post', function() {
 		it('should throw an error if no configuration is given', function() {
 			try {
 				postExport();
-				expect(1).to.equal(2);
+				expect.fail;
 			}
 			catch(err) {
 				expect(err).to.equal("No API configuration");
@@ -35,7 +35,7 @@ describe('utils#post', function() {
 		var apiDataTest = function(apiData, errorMsg) {
 			try {
 				postExport(apiData);
-				expect(1).to.equal(2);
+				expect.fail;
 			}
 			catch(err) {
 				expect(err).to.equal(errorMsg);
@@ -73,7 +73,7 @@ describe('utils#post', function() {
 		});
 
 		it('should return a function', function() {
-			expect(postExport(baseConfig)).to.be.an('function');
+			expect(postExport(baseConfig)).to.be.a('function');
 		});
 	});
 
@@ -84,8 +84,9 @@ describe('utils#post', function() {
 				token: "notoken"
 			}
 			var post = postExport(config);
-			post({}, function(err, res) {
-				expect(err).to.not.equal({});
+			post({}, function(error, res) {
+				expect(error.errno).to.equal("ECONNREFUSED");
+				expect(res).to.be.null;
 				done();
 			});
 		});
@@ -98,7 +99,7 @@ describe('utils#post', function() {
 			}
 			var post = postExport(config);
 			post({}, function(err, res) {
-				expect(err).to.not.equal({});
+				expect(err).to.be.an('object').that.has.property('error');
 				done();
 			});
 		});
@@ -106,7 +107,7 @@ describe('utils#post', function() {
 		it('should give an error if the postData was invalid', function(done) {
 			var post = postExport(baseConfig);
 			post({}, function(err, res) {
-				expect(err).to.not.equal({});
+				expect(err).to.be.an('object').that.has.property('error');
 				done();
 			});
 		});
@@ -118,7 +119,7 @@ describe('utils#post', function() {
 			}
 			var post = postExport(baseConfig);
 			post(body, function(err, res) {
-				expect(err).to.not.equal({});
+				expect(err).to.be.an('object').that.has.property('error');
 				done();
 			});
 		});
@@ -131,12 +132,13 @@ describe('utils#post', function() {
 			}
 			var post = postExport(baseConfig);
 			post(body, function(err, res) {
-				expect(res).to.not.equal({});
+				expect(err).to.be.null;
+				expect(res).to.not.be.null;
 				done();
 			});
 		});
 
-		// This test breaks stuff and is terrible
+		// This test breaks stuff and is terrible. It tries to run twice?
 		/*
 		it('should give an error if the path was incorrect', function(done) {
 			var config = {
@@ -146,7 +148,7 @@ describe('utils#post', function() {
 			}
 			var post = postExport(config);
 			post({}, function(err, res) {
-				expect(err).to.not.equal({});
+				expect(err).to.not.be.empty;
 				done();
 			});
 		});

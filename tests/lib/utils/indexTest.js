@@ -16,7 +16,6 @@ describe('utils', function() {
 		}
 		var utils = utilExport(config);
 
-
 		it('should return an object with keys to utility functions', function() {
 			expect(utils).to.be.an('object');
 

@@ -10,12 +10,15 @@
     "type": "git",
     "url": "https://github.iu.edu/csi/redcap.js.git"
   },
-	"dependencies": {
-		"querystring":"^0.2.0"
-	},
+  "dependencies": {
+    "querystring": "^0.2.0"
+  },
   "keywords": [
     "redcap"
   ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^3.4.2"
+  }
 }
