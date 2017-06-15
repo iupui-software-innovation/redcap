@@ -26,6 +26,7 @@ describe('utils', function() {
 
 			expect(utils).to.have.keys(keys);
 		});
+
 		describe('#post', function() {
 			it('should be a function', function() {
 				expect(utils.post).to.be.a('function');
