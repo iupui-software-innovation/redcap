@@ -27,8 +27,7 @@ describe('survey#exportParticipants', function() {
 			event: ''
 		}
 		exportFunc(params, function(err, res) {
-			expect(err).to.be.empty;
-			expect(res).to.not.be.empty;
+			expect(err).to.be.null;
 			expect(res).to.be.an('array');
 			done();
 		});
