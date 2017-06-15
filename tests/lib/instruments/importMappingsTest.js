@@ -22,9 +22,9 @@ describe('instruments#importMappings', function() {
 	});
 
 	it('should provide an error if no values are passed', function(done) {
-		importMappings({data:{}}, function(err, res) {
-			expect(err).to.not.be.empty;
-			expect(res).to.be.empty;
+		importMappings({data: null}, function(err, res) {
+			expect(err).to.not.be.null;
+			expect(res).to.be.null;
 			done();
 		});
 	});
@@ -37,7 +37,7 @@ describe('instruments#importMappings', function() {
 				"form": "test_followup_survey"
 			}]
 			importMappings({data: JSON.stringify(data)}, function(err, res) {
-				expect(err).to.be.empty;
+				expect(err).to.be.null;
 				expect(res).to.equal(1);
 				done();
 			});

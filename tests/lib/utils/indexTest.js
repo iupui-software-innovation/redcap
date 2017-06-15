@@ -20,7 +20,7 @@ describe('utils', function() {
 			expect(utils).to.be.an('object');
 
 			var keys = [
-				'post',
+				'post'
 			];
 
 			expect(utils).to.have.keys(keys);

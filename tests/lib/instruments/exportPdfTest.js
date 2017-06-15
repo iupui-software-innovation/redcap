@@ -22,11 +22,14 @@ describe('instruments#exportPdf', function() {
 
 	it('should return a PDF file', function(done) {
 		var exportFunc = exportPdf(utils);
-
-		exportFunc({}, function(err, res) {
-			expect(err).to.be.empty;
-			expect(res).to.not.be.empty;
-			// TODO Add more tests
+		var params = {
+			instrument: '',
+			event: '',
+			record: ''
+		}
+		exportFunc(params, function(err, res) {
+			expect(err).to.be.null;
+			expect(res).to.be.a('string');
 			done();
 		});
 	});

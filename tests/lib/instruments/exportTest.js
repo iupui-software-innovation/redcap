@@ -23,9 +23,9 @@ describe('instruments#exportInfo', function() {
 	it('should return an array of instruments', function(done) {
 		var exportInfoFunc = exportInfo(utils);
 
-		exportInfoFunc({}, function(err, res) {
-			expect(err).to.be.empty;
-			expect(res).to.not.be.empty;
+		exportInfoFunc(null, function(err, res) {
+			expect(err).to.be.null;
+			expect(res).to.not.be.null;
 			expect(res).to.be.an('array');
 			done();
 		});
