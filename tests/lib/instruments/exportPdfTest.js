@@ -20,6 +20,7 @@ describe('instruments#exportPdf', function() {
 		expect(exportFunc).to.be.a('function');
 	});
 
+	// The PDF will default to the root directory of redcap.js unless changed
 	it('should return a PDF file', function(done) {
 		var exportFunc = exportPdf(utils);
 		var params = {
