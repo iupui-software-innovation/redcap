@@ -25,11 +25,12 @@ describe('instruments#exportPdf', function() {
 		var params = {
 			instrument: '',
 			event: '',
-			record: ''
+			record: '',
+			directory: 'lib/instruments/',
+			fileName: 'test'
 		}
 		exportFunc(params, function(err, res) {
 			expect(err).to.be.null;
-			expect(res).to.be.a('string');
 			done();
 		});
 	});
