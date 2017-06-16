@@ -74,4 +74,8 @@ describe('utils#keyCheck', function() {
 		expect(checked.valid).to.be.true;
 		expect(checked.keys).to.have.all.keys('1', '2', 'a').and.to.not.have.any.keys('3', 'c');
 	});
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> master

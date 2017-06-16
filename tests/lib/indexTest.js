@@ -63,14 +63,27 @@ describe('redcap.js', function() {
 	it('should return an object with keys', function() {
 		var keys = [
 			'PACKAGE_VERSION',
+<<<<<<< HEAD
 			'redcapVersion'
+=======
+			'projects'
+>>>>>>> master
 		];
 		expect(redcap).to.be.an('object').that.has.keys(keys);
 	});
 
+<<<<<<< HEAD
 	describe('redcap#redcapVersion', function() {
 		it('should be an object', function() {
 			expect(redcap.redcapVersion).to.be.an('object');
 		});
 	});
 });
+=======
+	describe('redcap#projects', function() {
+		it('should be an object', function() {
+			expect(redcap.projects).to.be.an('object');
+		});
+	});
+});
+>>>>>>> master
