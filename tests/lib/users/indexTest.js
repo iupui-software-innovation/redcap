@@ -1,8 +1,14 @@
 'use strict';
 
 const expect = require('chai').expect;
+const config = {
+	host: 'redcap.uits.iu.edu',
+	path: '/api/',
+	token: process.env.REDCAP_API_KEY
+}
+const utils = require('../../../lib/utils')(config);
+
 const usersModule = require('../../../lib/users');
-const utils = require('../../../lib/utils');
 
 describe('users', function() {
 	it('should be a function', function() {
@@ -13,7 +19,7 @@ describe('users', function() {
 
 	var keys = [
 		'export',
-		'import',
+		'import'
 	];
 
 	it('should return an object with keys', function() {
