@@ -21,7 +21,7 @@ describe('utils', function() {
 
 			var keys = [
 				'post',
-				'keyCheck',
+				'keyCheck'
 			];
 
 			expect(utils).to.have.keys(keys);
