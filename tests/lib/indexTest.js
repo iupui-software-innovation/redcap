@@ -63,7 +63,12 @@ describe('redcap.js', function() {
 	it('should return an object with keys', function() {
 		var keys = [
 			'PACKAGE_VERSION',
-            'metadata'
+            'metadata',
+			'redcapVersion',
+			'projects',
+            'fieldNames',
+            'reports',
+            'survey'
 		];
 		expect(redcap).to.be.an('object').that.has.keys(keys);
 	});
@@ -71,6 +76,31 @@ describe('redcap.js', function() {
 	describe('redcap#metadata', function() {
 		it('should be an object', function() {
 			expect(redcap.metadata).to.be.an('object');
+		});
+	});
+	describe('redcap#redcapVersion', function() {
+		it('should be an object', function() {
+			expect(redcap.redcapVersion).to.be.an('object');
+		});
+	});
+	describe('redcap#projects', function() {
+		it('should be an object', function() {
+			expect(redcap.projects).to.be.an('object');
+		});
+	});
+	describe('redcap#fieldNames', function() {
+		it('should be an object', function() {
+			expect(redcap.fieldNames).to.be.an('object');
+		});
+	});
+	describe('redcap#reports', function() {
+		it('should be an object', function() {
+			expect(redcap.reports).to.be.an('object');
+		});
+	});
+	describe('redcap#survey', function() {
+		it('should be an object', function() {
+			expect(redcap.survey).to.be.an('object');
 		});
 	});
 });
