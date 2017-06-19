@@ -60,5 +60,34 @@ describe ('records#import', function () {
         done ();
       });
     });
+
+    it ('for two records', function (done) {
+      var data = JSON.stringify ([
+        {
+          record_id: "1",
+          does_the_practice_monitor:1,
+          does_the_practice_schedule:1
+        },
+        {
+          record_id: "2",
+          does_the_practice_monitor:0,
+          does_the_practice_schedule:0
+        }
+      ]);
+
+      var opts = {
+        data: data,
+        type: 'flat',
+        overwriteBehavior: 'normal',
+        returnContent: 'ids'
+      };
+
+      importRecord (opts, function (error, res) {
+        expect (error).to.be.null;
+        expect (res).to.be.an ('array');
+        expect (res.length).to.equal (2);
+        done ();
+      });
+    });
   });
 });

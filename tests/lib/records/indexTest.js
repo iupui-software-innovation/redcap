@@ -10,7 +10,8 @@ describe('records', function() {
 	});
 
 	var keys = [
-		'exportRecords'
+		'exportRecords',
+    'importRecords'
 	];
 
 	var records = recordsModule(utils);
