@@ -29,9 +29,8 @@ describe('files#export', function() {
             event: ''
         }
 		exportFunc(params, function(err, res) {
-            console.log(res);
 			expect(err).to.be.null;
-			expect(res).to.not.be.empty;
+			expect(res).to.not.be.null;
 			done();
 		});
 	});

@@ -27,10 +27,8 @@ describe('files#delete', function() {
             field: 'testfile',
             event: ''
         }
-		deleteFunc({}, function(err, res) {
-            console.log(err);
+		deleteFunc(params, function(err, res) {
 			expect(err).to.be.null;
-			expect(res).to.not.be.empty;
 			done();
 		});
 	});
