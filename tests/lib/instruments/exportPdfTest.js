@@ -22,7 +22,7 @@ describe('instruments#exportPdf', function() {
 
 	// The PDF will default to the root directory of redcap.js unless changed
 	// This test calls done twice, but the PDF creation part is working
-	/*
+	
 	it('should return a PDF file', function(done) {
 		var exportFunc = exportPdf(utils);
 		var params = {
@@ -37,5 +37,5 @@ describe('instruments#exportPdf', function() {
 			done();
 		});
 	});
-	*/
+	
 });
