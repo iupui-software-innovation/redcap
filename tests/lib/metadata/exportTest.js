@@ -1,31 +1,30 @@
 'use strict';
 
 const expect = require('chai').expect;
-const exportInfo = require('../../../lib/metadata/export.js');
+const config = {
+	host: 'redcap.uits.iu.edu',
+	path: '/api/',
+	token: process.env.REDCAP_API_KEY
+}
+const utils = require('../../../lib/utils')(config);
 
-describe('metadata#exportInfo', function() {
+const exportModule = require('../../../lib/metadata/export.js');
+
+describe('metadata#export', function() {
 	it('should be a function', function() {
-		expect(exportInfo).to.be.a('function');
+		expect(exportModule).to.be.a('function');
 	});
 
-	const config = {
-		host: 'redcap.uits.iu.edu',
-		path: '/api/',
-		token: process.env.REDCAP_API_KEY
-	}
-	const utils = require('../../../lib/utils')(config);
+	var exportMetadata = exportModule(utils);
 
 	it('should return a function', function() {
-		var exportFunc = exportInfo(utils);
-		expect(exportFunc).to.be.a('function');
+		expect(exportMetadata).to.be.a('function');
 	});
 
-	it('should return project info', function(done) {
-		var exportFunc = exportInfo(utils);
-
-		exportFunc({}, function(err, res) {
-			expect(err).to.be.empty;
-			expect(res).to.not.be.empty;
+	it('should return metadata', function(done) {
+		exportMetadata({}, function(error, res) {
+			expect(error).to.be.null;
+			expect(res).to.not.be.null;
 			expect(res).to.be.an('array');
 			done();
 		});

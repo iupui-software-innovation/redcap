@@ -1,4 +1,3 @@
 npm-debug.log
-lib/config.json
-tests/lib/config.json
-node_modules
+node_modules    
+*.swp
