@@ -4,7 +4,7 @@ const expect = require ('chai').expect;
 const config = {
   host: 'redcap.uits.iu.edu',
   path: '/api/',
-  token: process.env.REDCAP_API_TOKEN
+  token: process.env.REDCAP_API_KEY
 };
 const utils = require ('../../../lib/utils')(config);
 
