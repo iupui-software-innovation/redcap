@@ -55,6 +55,7 @@ describe ('records#import', function () {
       };
 
       importRecord (opts, function (error, res) {
+        console.log (error);
         expect (error).to.be.null;
         expect (res).to.be.an ('object').that.has.property ('count').that.equals (1);
         done ();
