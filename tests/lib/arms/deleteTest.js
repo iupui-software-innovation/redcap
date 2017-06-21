@@ -29,8 +29,12 @@ describe('arms#delete', function() {
 		});
 	});
 
+	var params = {
+		arms:  ['1', '2']
+	}
 	it('should the number of arms deleted', function(done) {
-		deleteArms({arms: ['1', '2']}, function(error, res) {
+		deleteArms(params, function(error, res) {
+			console.log(error);
 			expect(error).to.be.null;
 			expect(res).to.be.a('number');
 			done();
