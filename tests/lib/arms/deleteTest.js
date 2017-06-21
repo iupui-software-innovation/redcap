@@ -29,16 +29,8 @@ describe('arms#delete', function() {
 		});
 	});
 
-    var params = {
-        arms: [
-            {
-                "arm_num": 1,
-                "name": "Drug A"
-            }
-        ]
-    }
 	it('should the number of arms deleted', function(done) {
-		deleteArms(params, function(error, res) {
+		deleteArms({arms: ['1', '2']}, function(error, res) {
 			expect(error).to.be.null;
 			expect(res).to.be.a('number');
 			done();

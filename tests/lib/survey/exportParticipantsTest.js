@@ -24,7 +24,7 @@ describe('survey#exportParticipants', function() {
 		var exportFunc = exportParticipants(utils);
 		var params = {
 			instrument: 'effective_transitional_care_checklist',
-			event: ''
+			event: 'event_1_arm_1'
 		}
 		exportFunc(params, function(err, res) {
 			expect(err).to.be.null;
