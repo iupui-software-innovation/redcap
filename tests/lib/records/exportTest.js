@@ -44,14 +44,14 @@ describe('records#export', function() {
 
 	it('should accept optional parameters', function(done) {
 		var params = {
-			type: 'eav',
-			records: ['1']
+			type: 'flat',
+			records: ['1', '2']
 		}
 
 		exportRecord(params, function(err, res) {
 			expect(err).to.be.null;
 			expect(res).to.be.an('array').that.is.not.empty;
-			expect(res[0]).to.be.an('object').that.has.property('record').that.equals('1');
+			expect(res[0]).to.be.an('object').that.has.property('record_id').that.equals('2');
 
 			done();
 			return;
