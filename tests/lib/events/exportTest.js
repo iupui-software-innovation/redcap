@@ -16,4 +16,26 @@ describe ('events#export', function () {
     expect (exportEvents).to.be.a ('function');
   });
 
+  it ('should return events', function (done) {
+    exportEvents({}, function (err, res) {
+      expect (err).to.be.null;
+      expect (res).to.be.an ('array');
+
+      done ();
+    });
+  });
+
+  it ('should return particular events when passed an array of arms numbers', function (done) {
+    var params = {
+      arms: ['1']
+    }
+
+    exportEvents (params, function (err, res) {
+      expect (err).to.be.null;
+      expect (res).to.be.an ('array');
+      console.log (res);
+      
+      done ();
+    });
+  });
 });
