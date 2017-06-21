@@ -10,8 +10,17 @@ describe ('events', function () {
   });
 
   var events = eventsModule (utils);
+  var keys = [
+    'exportEvents'
+  ];
 
-  it ('should return an object', function () {
-    expect (events).to.be.an ('object');
+  it ('should return an object with keys', function () {
+    expect (events).to.be.an ('object').that.has.keys (keys);
+  });
+
+  describe ('events#exportEvents', function () {
+    it ('should be a function', function () {
+      expect (events.exportEvents).to.be.a ('function');
+    });
   });
 });
