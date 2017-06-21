@@ -33,7 +33,6 @@ describe ('events#export', function () {
     exportEvents (params, function (err, res) {
       expect (err).to.be.null;
       expect (res).to.be.an ('array');
-      console.log (res);
       
       done ();
     });

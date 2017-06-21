@@ -11,7 +11,8 @@ describe ('events', function () {
 
   var events = eventsModule (utils);
   var keys = [
-    'exportEvents'
+    'exportEvents',
+    'importEvents'
   ];
 
   it ('should return an object with keys', function () {
@@ -21,6 +22,12 @@ describe ('events', function () {
   describe ('events#exportEvents', function () {
     it ('should be a function', function () {
       expect (events.exportEvents).to.be.a ('function');
+    });
+  });
+
+  describe ('events#importEvents', function () {
+    it ('should be a function', function () {
+      expect (events.importEvents).to.be.a ('function');
     });
   });
 });
