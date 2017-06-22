@@ -30,7 +30,7 @@ describe('arms#delete', function() {
 	});
 
 	var params = {
-		arms:  ['1', '2']
+		'arms':  '1, 2'
 	}
 	it('should the number of arms deleted', function(done) {
 		deleteArms(params, function(error, res) {

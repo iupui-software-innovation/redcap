@@ -22,9 +22,13 @@ describe('arms#exportarms', function() {
 	});
 
 	it('should return an array of arms', function(done) {
-		exportArms({}, function(error, res) {
+		var params = {
+			'arms[]': 1
+		}
+		exportArms(params, function(error, res) {
+			console.log(error);
 			expect(error).to.be.null;
-            expect(res).to.be.a('array').of.length(4);
+            expect(res).to.be.a('array').of.length(1);
 			done();
 		});
 	});
