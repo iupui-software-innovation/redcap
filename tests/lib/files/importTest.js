@@ -30,7 +30,6 @@ describe('files#import', function() {
             file: ''
         }
 		importFunc(params, function(err, res) {
-            console.log(res);
 			expect(err).to.be.null;
 			expect(res).to.not.be.null;
 			done();
