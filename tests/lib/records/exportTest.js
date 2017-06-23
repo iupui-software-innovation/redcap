@@ -49,8 +49,6 @@ describe('records#export', function() {
 		}
 
 		exportRecord(params, function(err, res) {
-      console.log (err);
-      console.log (res);
 			expect(err).to.be.null;
 			expect(res).to.be.an('array').that.is.not.empty;
 			expect(res[0]).to.be.an('object').that.has.property('record_id').that.equals('1');
