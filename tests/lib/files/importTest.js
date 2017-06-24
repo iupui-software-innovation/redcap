@@ -2,6 +2,7 @@
 
 const expect = require('chai').expect;
 const importInfo = require('../../../lib/files/import.js');
+const fs = require('fs');
 
 describe('files#import', function() {
 	it('should be a function', function() {
@@ -27,9 +28,10 @@ describe('files#import', function() {
             record: '1',
             field: 'testfile',
             event: '',
-            file: ''
+            file: fs.readFileSync('test3.txt')
         }
 		importFunc(params, function(err, res) {
+			console.log(err);
 			expect(err).to.be.null;
 			expect(res).to.not.be.null;
 			done();
