@@ -33,9 +33,11 @@ describe ('records#deleteRecords', function () {
   });
 
   it ('should return the number of records deleted', function (done) {
+    var recs = [ "30", "31" ];
     var body = {
-      records: [ "30", "31", "32" ]
+      records: recs
     }
+    console.log(Array.isArray(body.records));
     deleteRecords (body, function (error, res) {
       if (error) {
         console.log (error);
