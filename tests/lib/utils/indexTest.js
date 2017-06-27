@@ -22,6 +22,7 @@ describe('utils', function() {
 			var keys = [
 				'post',
 				'keyCheck',
+				'postFileUpload'
 			];
 
 			expect(utils).to.have.keys(keys);
@@ -32,7 +33,11 @@ describe('utils', function() {
 				expect(utils.post).to.be.a('function');
 			});
 		});
-
+    describe('#postFileUpload', function() {
+      it('should be a function', function() {
+        expect(utils.postFileUpload).to.be.a('function');
+      });
+    });
 		describe('#keyCheck', function() {
 			it('should be a function', function() {
 				expect(utils.keyCheck).to.be.a('function');

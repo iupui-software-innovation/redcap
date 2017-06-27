@@ -13,7 +13,7 @@ describe('files#import', function() {
 		host: 'redcap.uits.iu.edu',
 		path: '/api/',
 		token: process.env.REDCAP_API_KEY
-	}
+	};
 	const utils = require('../../../lib/utils')(config);
 
 	it('should return a function', function() {
@@ -25,11 +25,12 @@ describe('files#import', function() {
 		var importFunc = importInfo(utils);
 
         var params = {
-            record: '1',
-            field: 'testfile',
-            event: '',
-            file: fs.readFileSync('test3.txt')
-        }
+        	directory: '',
+        	record: '1',
+					field: 'testfile',
+					event: '',
+					repeat_instance: 1
+        };
 		importFunc(params, function(err, res) {
 			console.log(err);
 			expect(err).to.be.null;
