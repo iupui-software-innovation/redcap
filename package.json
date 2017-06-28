@@ -2,7 +2,7 @@
   "name": "redcap.js",
   "version": "0.0.1",
   "description": "A module for interacting with REDCap",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "scripts": {
     "test": "mocha --recursive tests/lib --reporter spec"
   },
@@ -10,12 +10,15 @@
     "type": "git",
     "url": "https://github.iu.edu/csi/redcap.js.git"
   },
-	"dependencies": {
-		"querystring":"^0.2.0"
-	},
+  "dependencies": {
+    "querystring": "^0.2.0"
+  },
   "keywords": [
     "redcap"
   ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^3.4.2"
+  }
 }
