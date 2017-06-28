@@ -14,7 +14,7 @@ describe ('redcap.js', function () {
       redcapModule ("", {});
       expect.fail;
     }
-    catch  (err) {
+    catch (err) {
       expect (err).to.be.a ('string').that.equals ("No API token specified");
     }
   });
@@ -24,7 +24,7 @@ describe ('redcap.js', function () {
       redcapModule ();
       expect.fail;
     }
-    catch  (err) {
+    catch (err) {
       expect (err).to.be.a ('string').that.equals ("No API token specified");
     }
   });
@@ -34,7 +34,7 @@ describe ('redcap.js', function () {
       redcapModule ("hi");
       expect.fail;
     }
-    catch  (err) {
+    catch (err) {
       expect (err).to.be.a ('string').that.equals ("No options provided");
     }
   });
@@ -44,7 +44,7 @@ describe ('redcap.js', function () {
       redcapModule ("hi", {});
       expect.fail;
     }
-    catch  (err) {
+    catch (err) {
       expect (err).to.be.a ('string').that.equals ("Host undefined (options.host)");
     }
   });
@@ -54,7 +54,7 @@ describe ('redcap.js', function () {
       redcapModule ("hi", {host:"localhost"});
       expect.fail;
     }
-    catch  (err) {
+    catch (err) {
       expect (err).to.be.a ('string').that.equals ("Path undefined (options.path)");
     }
   });
