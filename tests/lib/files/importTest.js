@@ -29,10 +29,9 @@ describe ('files#import', function () {
       file: fileData.toString ('base64'),
       record: '1',
       field: 'testfile',
-      event: '',
+      event: 'event_1_arm_1',
       repeat_instance: 1
     };
-    console.log (params.file);
     importFunc (params, function (err, res) {
       console.log (err);
       expect (err).to.be.null;
