@@ -42,5 +42,27 @@ describe ('instruments#importMappings', function () {
         done ();
       });
     });
+    
+    it ('for 2 updates', function (done) {
+      var data = [
+        {
+          "arm_num":1,
+          "unique_event_name": "event_1_arm_1",
+          "form": "test_followup_survey"
+        },
+        {
+          "arm_num": 1,
+          "unique_event_name": "event_1_arm_1",
+          "form": "effective_transitional_care_checklist"
+        }
+      ];
+
+      importMappings ({ data: JSON.stringify (data)}, function (err, res) {
+        expect (err).to.be.null;
+        expect (res).to.equal (2);
+
+        done ();
+      });
+    });
   });
 });
