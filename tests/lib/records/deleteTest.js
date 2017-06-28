@@ -33,7 +33,7 @@ describe ('records#deleteRecords', function () {
   });
 
   it ('should return the number of records deleted', function (done) {
-    var recs = [ "30", "31" ];
+    var recs = [ "30" ];
     var body = {
       records: recs
     }
@@ -44,7 +44,7 @@ describe ('records#deleteRecords', function () {
       }
 
       expect (error).to.be.null;
-      expect (res).to.be.a ('number').that.equals (3);
+      expect (res).to.be.a ('number').that.equals (1);
 
       done ();
     });
