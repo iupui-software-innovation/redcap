@@ -46,7 +46,7 @@ describe ('records#import', function () {
 
   describe ('should import a record and return number of imported records', function () {
     it ('for one record', function (done) {
-      var data = [{record:"1", field_name:"does_the_practice_monitor", value:0}];
+      var data = JSON.stringify ([{record:"30", field_name:"does_the_practice_monitor", value:0}])
 
       var opts = {
         data: data,
@@ -68,12 +68,12 @@ describe ('records#import', function () {
     it ('for two records', function (done) {
       var data = [
         {
-          record_id: "1",
+          record_id: "31",
           does_the_practice_monitor:1,
           does_the_practice_schedule:1
         },
         {
-          record_id: "2",
+          record_id: "32",
           does_the_practice_monitor:0,
           does_the_practice_schedule:0
         }
