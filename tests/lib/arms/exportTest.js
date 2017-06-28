@@ -23,9 +23,9 @@ describe ('arms#exportarms', function () {
 
   it ('should return an array of arms', function (done) {
     var params = {
+      arms: ['1']
     };
     exportArms (params, function (error, res) {
-      console.log (res);
       expect (error).to.be.null;
       expect (res).to.be.a ('array').of.length (1);
       done ();
