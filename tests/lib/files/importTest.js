@@ -10,7 +10,7 @@ describe ('files#import', function () {
   });
 
   const config = {
-    host: 'redcap.uits.iu.edu',
+    host: 'https://redcap.uits.iu.edu',
     path: '/api/',
     token: process.env.REDCAP_API_KEY
   };
