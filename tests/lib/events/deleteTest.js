@@ -38,7 +38,9 @@ describe ('events#deleteEvents', function () {
     };
 
     deleteEvents (params, function (error, res) {
-      console.log (error);
+      if (error) {
+        console.log (error);
+      }
       expect (error).to.be.null;
       expect (res).to.be.a ('number').that.equals (2);
 

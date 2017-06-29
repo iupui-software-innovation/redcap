@@ -74,6 +74,12 @@ describe('redcap.js', function() {
     expect(redcap).to.be.an('object').that.has.keys(keys);
   });
 
+  describe ('redcap#events', function () {
+    it ('should be an object', function () {
+      expect (redcap.events).to.be.a ('function');
+    });
+  });
+  
   describe('redcap#users', function() {
     it('should be an object', function() {
       expect(redcap.users).to.be.an('object');
