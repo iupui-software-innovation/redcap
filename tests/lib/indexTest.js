@@ -63,6 +63,7 @@ describe ('redcap.js', function () {
   it ('should return an object with keys', function () {
     var keys = [
       'PACKAGE_VERSION',
+      'events',
       'arms',
       'users',
       'metadata',
@@ -75,6 +76,16 @@ describe ('redcap.js', function () {
     expect (redcap).to.be.an ('object').that.has.keys (keys);
   });
 
+  describe ('redcap#events', function () {
+    it ('should be an object', function () {
+      expect (redcap.events).to.be.an ('object');
+    });
+  });
+  describe('redcap#users', function() {
+    it('should be an object', function() {
+      expect(redcap.users).to.be.an('object');
+    });
+  });
   describe ('redcap#arms', function () {
     it ('should be an object', function () {
       expect (redcap.arms).to.be.an ('object');
