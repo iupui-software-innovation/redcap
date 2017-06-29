@@ -27,12 +27,13 @@ describe ('events#export', function () {
 
   it ('should return particular events when passed an array of arms numbers', function (done) {
     var params = {
-      arms: ['1']
+      arms: ['1', '2']
     }
 
     exportEvents (params, function (err, res) {
       expect (err).to.be.null;
       expect (res).to.be.an ('array');
+      expect (res.length).to.equal (2);
       
       done ();
     });
