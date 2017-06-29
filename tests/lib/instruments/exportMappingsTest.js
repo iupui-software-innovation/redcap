@@ -22,7 +22,10 @@ describe ('instruments#exportMappings', function () {
 
   it ('should return an array of mappings', function (done) {
     var exportFunc = exportMappings (utils);
-    exportFunc ({}, function (err, res) {
+    var params = {
+      arms: [1]
+    };
+    exportFunc (params, function (err, res) {
       expect (err).to.be.null;
       expect (res).to.not.be.null;
       expect (res).to.be.an ('array');
