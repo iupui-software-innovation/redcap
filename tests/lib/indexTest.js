@@ -63,6 +63,7 @@ describe ('redcap.js', function () {
   it ('should return an object with keys', function () {
     var keys = [
       'PACKAGE_VERSION',
+      'arms',
       'users',
       'metadata',
       'redcapVersion',
@@ -74,39 +75,44 @@ describe ('redcap.js', function () {
     expect (redcap).to.be.an ('object').that.has.keys (keys);
   });
 
+  describe ('redcap#arms', function () {
+    it ('should be an object', function () {
+      expect (redcap.arms).to.be.an ('object');
+    });
+  });
   describe ('redcap#users', function () {
     it ('should be an object', function () {
       expect (redcap.users).to.be.an ('object');
     });
-    describe ('redcap#metadata', function () {
-      it ('should be an object', function () {
-        expect (redcap.metadata).to.be.an ('object');
-      });
+  });
+  describe ('redcap#metadata', function () {
+    it ('should be an object', function () {
+      expect (redcap.metadata).to.be.an ('object');
     });
-    describe ('redcap#redcapVersion', function () {
-      it ('should be an object', function () {
-        expect (redcap.redcapVersion).to.be.an ('object');
-      });
+  });
+  describe ('redcap#redcapVersion', function () {
+    it ('should be an object', function () {
+      expect (redcap.redcapVersion).to.be.an ('object');
     });
-    describe ('redcap#projects', function () {
-      it ('should be an object', function () {
-        expect (redcap.projects).to.be.an ('object');
-      });
+  });
+  describe ('redcap#projects', function () {
+    it ('should be an object', function () {
+      expect (redcap.projects).to.be.an ('object');
     });
-    describe ('redcap#fieldNames', function () {
-      it ('should be an object', function () {
-        expect (redcap.fieldNames).to.be.an ('object');
-      });
+  });
+  describe ('redcap#fieldNames', function () {
+    it ('should be an object', function () {
+      expect (redcap.fieldNames).to.be.an ('object');
     });
-    describe ('redcap#reports', function () {
-      it ('should be an object', function () {
-        expect (redcap.reports).to.be.an ('object');
-      });
+  });
+  describe ('redcap#reports', function () {
+    it ('should be an object', function () {
+      expect (redcap.reports).to.be.an ('object');
     });
-    describe ('redcap#survey', function () {
-      it ('should be an object', function () {
-        expect (redcap.survey).to.be.an ('object');
-      });
+  });
+  describe ('redcap#survey', function () {
+    it ('should be an object', function () {
+      expect (redcap.survey).to.be.an ('object');
     });
   });
 });
