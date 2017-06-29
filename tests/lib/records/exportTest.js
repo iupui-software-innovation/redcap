@@ -45,7 +45,7 @@ describe('records#export', function() {
 	it('should accept optional parameters', function(done) {
 		var params = {
 			type: 'flat',
-			records: "1, 2"
+			records: [1, 2]
 		}
 
 		exportRecord(params, function(err, res) {

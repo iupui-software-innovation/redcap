@@ -37,7 +37,7 @@ describe ('records#deleteRecords', function () {
     var body = {
       records: recs
     }
-    console.log(Array.isArray(body.records));
+
     deleteRecords (body, function (error, res) {
       if (error) {
         console.log (error);
