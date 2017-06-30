@@ -21,11 +21,15 @@ describe ('metadata#export', function () {
     expect (exportMetadata).to.be.a ('function');
   });
 
+  var params = {
+    forms: ['test_followup_survey'],
+    fields: ['testfile']
+  };
   it ('should return metadata', function (done) {
-    exportMetadata ({}, function (error, res) {
+    exportMetadata (params, function (error, res) {
       expect (error).to.be.null;
       expect (res).to.not.be.null;
-      expect (res).to.be.an ('array');
+      expect (res).to.be.an ('array').of.length ('1');
       done ();
     });
   });
