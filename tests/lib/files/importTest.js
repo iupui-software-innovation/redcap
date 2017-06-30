@@ -26,14 +26,16 @@ describe ('files#import', function () {
 
     var fileData = fs.readFileSync ('test3.txt');
     var params = {
-      file: fileData.toString ('base64'),
+      file: 'test3.txt',
       record: '1',
       field: 'testfile',
       event: 'event_1_arm_1',
       repeat_instance: 1
     };
     importFunc (params, function (err, res) {
-      console.log (err);
+      if (err) {
+        console.log (err);
+      }
       expect (err).to.be.null;
       expect (res).to.not.be.null;
       done ();

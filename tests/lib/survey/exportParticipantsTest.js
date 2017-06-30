@@ -27,6 +27,9 @@ describe('survey#exportParticipants', function() {
 			event: ''
 		}
 		exportFunc(params, function(err, res) {
+      if (err) {
+        console.log (err);
+      }
 			expect(err).to.be.null;
 			expect(res).to.be.an('array');
 			done();
