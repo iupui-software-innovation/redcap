@@ -14,7 +14,7 @@ describe ('redcap.js', function () {
       redcapModule ("", {});
       expect.fail;
     }
-    catch  (err) {
+    catch (err) {
       expect (err).to.be.a ('string').that.equals ("No API token specified");
     }
   });
@@ -24,7 +24,7 @@ describe ('redcap.js', function () {
       redcapModule ();
       expect.fail;
     }
-    catch  (err) {
+    catch (err) {
       expect (err).to.be.a ('string').that.equals ("No API token specified");
     }
   });
@@ -34,7 +34,7 @@ describe ('redcap.js', function () {
       redcapModule ("hi");
       expect.fail;
     }
-    catch  (err) {
+    catch (err) {
       expect (err).to.be.a ('string').that.equals ("No options provided");
     }
   });
@@ -44,7 +44,7 @@ describe ('redcap.js', function () {
       redcapModule ("hi", {});
       expect.fail;
     }
-    catch  (err) {
+    catch (err) {
       expect (err).to.be.a ('string').that.equals ("Host undefined (options.host)");
     }
   });
@@ -54,7 +54,7 @@ describe ('redcap.js', function () {
       redcapModule ("hi", {host:"localhost"});
       expect.fail;
     }
-    catch  (err) {
+    catch (err) {
       expect (err).to.be.a ('string').that.equals ("Path undefined (options.path)");
     }
   });
@@ -63,12 +63,51 @@ describe ('redcap.js', function () {
   it ('should return an object with keys', function () {
     var keys = [
       'PACKAGE_VERSION',
+      'events',
+      'arms',
+      'users',
+      'metadata',
+      'redcapVersion',
       'projects',
-      'files'
+      'fieldNames',
+      'files',
+      'records',
+      'reports',
+      'survey'
     ];
     expect (redcap).to.be.an ('object').that.has.keys (keys);
   });
 
+  describe ('redcap#events', function () {
+    it ('should be an object', function () {
+      expect (redcap.events).to.be.an ('object');
+    });
+  });
+  describe('redcap#users', function() {
+    it('should be an object', function() {
+      expect(redcap.users).to.be.an('object');
+    });
+  });
+  describe ('redcap#arms', function () {
+    it ('should be an object', function () {
+      expect (redcap.arms).to.be.an ('object');
+    });
+  });
+  describe ('redcap#users', function () {
+    it ('should be an object', function () {
+      expect (redcap.users).to.be.an ('object');
+    });
+  });
+  describe ('redcap#metadata', function () {
+    it ('should be an object', function () {
+      expect (redcap.metadata).to.be.an ('object');
+    });
+  });
+  describe ('redcap#redcapVersion', function () {
+    it ('should be an object', function () {
+      expect (redcap.redcapVersion).to.be.an ('object');
+    });
+  });
   describe ('redcap#projects', function () {
     it ('should be an object', function () {
       expect (redcap.projects).to.be.an ('object');
@@ -77,6 +116,26 @@ describe ('redcap.js', function () {
   describe ('redcap#files', function () {
     it ('should be an object', function () {
       expect (redcap.files).to.be.an ('object');
+    });
+  });
+  describe ('redcap#fieldNames', function () {
+    it ('should be an object', function () {
+      expect (redcap.fieldNames).to.be.an ('object');
+    });
+  });
+  describe ('redcap#records', function () {
+    it ('should be an object', function  () {
+      expect (redcap.records).to.be.an ('object');
+    });
+  });
+  describe ('redcap#reports', function () {
+    it ('should be an object', function () {
+      expect (redcap.reports).to.be.an ('object');
+    });
+  });
+  describe ('redcap#survey', function () {
+    it ('should be an object', function () {
+      expect (redcap.survey).to.be.an ('object');
     });
   });
 });
