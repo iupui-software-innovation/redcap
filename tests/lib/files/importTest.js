@@ -24,7 +24,6 @@ describe ('files#import', function () {
   it ('should import a file', function (done) {
     var importFunc = importInfo (utils);
 
-    var fileData = fs.readFileSync ('test3.txt');
     var params = {
       file: 'test3.txt',
       record: '1',

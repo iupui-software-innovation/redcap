@@ -26,7 +26,8 @@ describe ('files#delete', function () {
     var params = {
       record: '1',
       field: 'testfile',
-      event: 'event_1_arm_1'
+      event: 'event_1_arm_1',
+      repeat_instance: '1'
     };
     deleteFunc (params, function (err, res) {
       if (err) {
