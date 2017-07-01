@@ -25,7 +25,8 @@ describe ('files#import', function () {
     var importFunc = importInfo (utils);
 
     var params = {
-      file: 'test3.txt',
+      file: 'filesImportTestFile.txt',
+      directory: '',
       record: '1',
       field: 'testfile',
       event: 'event_1_arm_1',
