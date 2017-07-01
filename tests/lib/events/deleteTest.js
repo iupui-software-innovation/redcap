@@ -28,6 +28,8 @@ describe ('events#deleteEvents', function () {
   });
 
   it ('should return the number of events deleted', function (done) {
+    this.timeout (4000);
+
     var events = [
       'import_test_event_arm_1',
       'import_test_event2_arm_1'

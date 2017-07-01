@@ -33,6 +33,7 @@ describe ('records#deleteRecords', function () {
   });
 
   it ('should return the number of records deleted', function (done) {
+    this.timeout (4000);
     var recs = [ "30" ];
     var body = {
       records: recs

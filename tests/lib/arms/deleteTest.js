@@ -29,11 +29,18 @@ describe ('arms#delete', function () {
     });
   });
 
-  var params = {
-    arms: ['3', '4']
-  };
   it ('should the number of arms deleted', function (done) {
+    this.timeout (4000);
+
+    var params = {
+      arms: ['3', '4']
+    };
+
     deleteArms (params, function (error, res) {
+      if (error) {
+        console.log (error);
+      }
+
       expect (error).to.be.null;
       expect (res).to.be.a ('number');
       done ();

@@ -45,6 +45,7 @@ describe ('records#import', function () {
   });
 
   describe ('should import a record and return number of imported records', function () {
+    this.timeout (4000);
     it ('for one record', function (done) {
       var data = [{record:"30", field_name:"does_the_practice_monitor", value:0}];
 
