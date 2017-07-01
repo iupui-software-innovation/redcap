@@ -70,6 +70,7 @@ describe ('redcap.js', function () {
       'redcapVersion',
       'projects',
       'fieldNames',
+      'files',
       'records',
       'reports',
       'survey'
@@ -110,6 +111,11 @@ describe ('redcap.js', function () {
   describe ('redcap#projects', function () {
     it ('should be an object', function () {
       expect (redcap.projects).to.be.an ('object');
+    });
+  });
+  describe ('redcap#files', function () {
+    it ('should be an object', function () {
+      expect (redcap.files).to.be.an ('object');
     });
   });
   describe ('redcap#fieldNames', function () {
