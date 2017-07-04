@@ -23,7 +23,7 @@ describe ('projects#importInfo', function () {
   });
 
   it ('should provide an error if no values are passed', function (done) {
-    importInfo ({data:{}}, function (err, res) {
+    importInfo ({}, function (err, res) {
       expect (err).to.be.an ('object').that.has.property ('error');
       expect (res).to.be.null;
       done ();
@@ -34,8 +34,8 @@ describe ('projects#importInfo', function () {
     it ('for 1 update', function (done) {
       var data = {
         surveys_enabled: 0
-      }
-      importInfo ({data: JSON.stringify (data)}, function (err, res) {
+      };
+      importInfo ({data: data}, function (err, res) {
         expect (err).to.be.null;
         expect (res).to.equal (1);
         done ();
@@ -46,8 +46,8 @@ describe ('projects#importInfo', function () {
       var data = {
         surveys_enabled: 1,
         project_name: 'REDCap.js (Test)'
-      }
-      importInfo ({data: JSON.stringify (data)}, function (err, res) {
+      };
+      importInfo ({data: data}, function (err, res) {
         expect (err).to.be.null;
         expect (res).to.equal (2);
         done ();

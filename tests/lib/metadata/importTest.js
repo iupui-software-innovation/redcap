@@ -42,7 +42,7 @@ describe ('metadata#import', function () {
     it ('for 1 update', function (done) {
       // Please put the most recent metadata here when testing this
       var data = [];
-      importInfo ({data: JSON.stringify (data)}, function (err, res) {
+      importInfo ({data: data}, function (err, res) {
         console.log (err);
         expect (err).to.be.null;
         expect (res).to.be.a ('number');
