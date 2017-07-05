@@ -49,7 +49,7 @@ describe('arms#import', function() {
   ];
 
   it('should the number of arms imported', function(done) {
-    importArms({data: JSON.stringify(data), override: 0}, function(error, res) {
+    importArms({data: data, override: 0}, function(error, res) {
       expect(error).to.be.null;
       expect(res).to.be.a('number');
       done();

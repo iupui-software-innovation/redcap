@@ -48,7 +48,7 @@ describe ('events#importEvents', function () {
       ];
 
       var params = {
-        data: JSON.stringify (data),
+        data: data,
         override: 0
       };
 
@@ -75,7 +75,7 @@ describe ('events#importEvents', function () {
       ];
 
       var params = {
-        data: JSON.stringify (data),
+        data: data,
         override: 0
       };
 

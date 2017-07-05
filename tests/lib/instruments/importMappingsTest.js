@@ -36,7 +36,7 @@ describe ('instruments#importMappings', function () {
         "unique_event_name": "event_1_arm_1",
         "form": "test_followup_survey"
       }];
-      importMappings ({data: JSON.stringify (data)}, function (err, res) {
+      importMappings ({data: data}, function (err, res) {
         expect (err).to.be.null;
         expect (res).to.equal (1);
         done ();
@@ -57,7 +57,7 @@ describe ('instruments#importMappings', function () {
         }
       ];
 
-      importMappings ({ data: JSON.stringify (data)}, function (err, res) {
+      importMappings ({ data: data}, function (err, res) {
         expect (err).to.be.null;
         expect (res).to.equal (2);
 

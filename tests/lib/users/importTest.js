@@ -32,7 +32,7 @@ describe ('users#importInfo', function () {
     // Use the latest User data from the export method
     var data = [];
 
-    importFunc ({data: JSON.stringify (data)}, function (err, res) {
+    importFunc ({data: data}, function (err, res) {
       expect (err).to.be.null;
       expect (res).to.not.be.null;
       expect (res).to.be.a ('number');
