@@ -66,6 +66,7 @@ describe ('redcap.js', function () {
       'events',
       'arms',
       'users',
+      'instruments',
       'metadata',
       'redcapVersion',
       'projects',
@@ -93,10 +94,10 @@ describe ('redcap.js', function () {
       expect (redcap.arms).to.be.an ('object');
     });
   });
-  describe ('redcap#users', function () {
-    it ('should be an object', function () {
-      expect (redcap.users).to.be.an ('object');
-    });
+  describe ('redcap#instruments', function () {
+      it ('should be an object', function () {
+          expect (redcap.instruments).to.be.an ('object');
+      });
   });
   describe ('redcap#metadata', function () {
     it ('should be an object', function () {
