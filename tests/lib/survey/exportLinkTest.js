@@ -25,8 +25,10 @@ describe ('survey#exportLink', function () {
     var params = {
       instrument: 'effective_transitional_care_checklist',
       event: '',
-      record: '1'
+      record: '1',
+      repeat_instance: '1'
     };
+
     exportFunc (params, function (err, res) {
       expect (err).to.be.null;
       expect (res).to.be.a ('string');
