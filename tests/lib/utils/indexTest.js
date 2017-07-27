@@ -22,7 +22,8 @@ describe ('utils', function () {
 			var keys = [
 				'post',
 				'keyCheck',
-				'postFileUpload'
+				'postFileUpload',
+        'date'
 			];
 
 			expect (utils).to.have.keys (keys);
@@ -43,5 +44,10 @@ describe ('utils', function () {
 				expect (utils.keyCheck).to.be.a ('function');
 			});
 		});
+    describe ('#date', function () {
+      it ('should be a function', function () {
+        expect (utils.date).to.be.a ('function');
+      });
+    });
 	});
 });
