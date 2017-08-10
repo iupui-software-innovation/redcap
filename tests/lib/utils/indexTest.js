@@ -23,6 +23,7 @@ describe ('utils', function () {
 				'post',
 				'keyCheck',
 				'postFileUpload',
+				'date'
 			];
 
 			expect (utils).to.have.keys (keys);
