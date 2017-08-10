@@ -23,10 +23,11 @@ describe ('users#exportInfo', function () {
 
   it ('should return project info', function (done) {
     exportFunc ({}, function (err, res) {
-      expect (err).to.be.null;
-      expect (res).to.not.be.null;
-      expect (res).to.be.an ('array').with.length (5);
-      done ();
+      if (err)
+        return done (err);
+
+      expect (res).to.be.an ('array');
+      return done ();
     });
   });
 });
