@@ -3,6 +3,8 @@
 const expect = require ('chai').expect;
 const exportPdf = require ('../../../lib/instruments/exportPdf.js');
 
+const fs = require ('fs');
+
 describe ('instruments#exportPdf', function () {
   it ('should be a function', function () {
     expect (exportPdf).to.be.a ('function');
@@ -20,19 +22,21 @@ describe ('instruments#exportPdf', function () {
     expect (exportFunc).to.be.a ('function');
   });
 
-  // The PDF will default to the root directory of redcap.js unless changed
-
   it ('should return a PDF file', function (done) {
+    this.timeout (4000);
     var exportFunc = exportPdf (utils);
     var params = {
       instrument: '',
       event: '',
       record: '',
-      directory: '',
-      fileName: 'test'
     };
+
     exportFunc (params, function (err, res) {
-      expect (err).to.be.null;
+      var file = fs.openSync ('exported.pdf', 'w');
+      console.log (res);
+      fs.writeSync (file, res);
+      fs.closeSync (file);
+
       done ();
     });
   });

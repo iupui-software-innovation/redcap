@@ -11,9 +11,9 @@ describe ('events', function () {
 
   var events = eventsModule (utils);
   var keys = [
-    'exportEvents',
-    'importEvents',
-    'deleteEvents'
+    'export',
+    'import',
+    'delete'
   ];
 
   it ('should return an object with keys', function () {
@@ -22,19 +22,19 @@ describe ('events', function () {
 
   describe ('events#exportEvents', function () {
     it ('should be a function', function () {
-      expect (events.exportEvents).to.be.a ('function');
+      expect (events.export).to.be.a ('function');
     });
   });
 
   describe ('events#importEvents', function () {
     it ('should be a function', function () {
-      expect (events.importEvents).to.be.a ('function');
+      expect (events.import).to.be.a ('function');
     });
   });
 
   describe ('events#deleteEvents', function () {
     it ('should be a function', function () {
-      expect (events.deleteEvents).to.be.a ('function');
+      expect (events.delete).to.be.a ('function');
     });
   });
 });

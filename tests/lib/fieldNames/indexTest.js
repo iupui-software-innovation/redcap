@@ -12,7 +12,7 @@ describe ('fieldNames', function () {
   var fieldNames = fieldModule (utils);
 
   var keys = [
-    'exportList'
+    'export'
   ];
 
   it ('should return an object with keys', function () {
@@ -21,7 +21,7 @@ describe ('fieldNames', function () {
 
   describe ('fieldNames#exportList', function () {
     it ('should be a function', function () {
-      expect (fieldNames.exportList).to.be.a ('function');
+      expect (fieldNames.export).to.be.a ('function');
     });
   });
 });
