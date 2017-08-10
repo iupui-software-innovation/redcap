@@ -31,7 +31,6 @@ describe ('metadata#export', function () {
         return done (error);
 
       expect (res).to.be.an ('array');
-      console.log (res);
       return done ();
     });
   });

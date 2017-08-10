@@ -33,7 +33,6 @@ describe ('instruments#exportPdf', function () {
 
     exportFunc (params, function (err, res) {
       var file = fs.openSync ('exported.pdf', 'w');
-      console.log (res);
       fs.writeSync (file, res);
       fs.closeSync (file);
 
