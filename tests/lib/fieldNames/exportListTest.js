@@ -16,7 +16,7 @@ describe ('fieldNames#exportList', function () {
   });
 
   it ('should return a list of export/import field names', function (done) {
-    exportList ({}, function (err, res) {
+    exportList (function (err, res) {
       if (err)
         return done (err);
       expect (res).to.be.an ('array');
