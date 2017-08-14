@@ -3,11 +3,7 @@
 const expect = require ('chai').expect;
 const postExport = require ('../../../lib/utils/post.js');
 
-const baseConfig = {
-  host: "redcap.uits.iu.edu",
-  path: "/api/",
-  token: process.env.REDCAP_API_KEY
-};
+const baseConfig = require ('../../config.js');
 
 if (baseConfig.token === "") {
   console.log ("Did you set the REDCAP_API_KEY environment variable before running the tests?");

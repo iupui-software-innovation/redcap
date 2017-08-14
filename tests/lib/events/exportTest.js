@@ -17,11 +17,12 @@ describe ('events#export', function () {
   });
 
   it ('should return events', function (done) {
-    exportEvents({}, function (err, res) {
-      expect (err).to.be.null;
+    exportEvents(function (err, res) {
+      if (err)
+        return done (err);
       expect (res).to.be.an ('array');
 
-      done ();
+      return done ();
     });
   });
 
@@ -31,11 +32,13 @@ describe ('events#export', function () {
     }
 
     exportEvents (params, function (err, res) {
-      expect (err).to.be.null;
+      if (err)
+        return done (err);
+
       expect (res).to.be.an ('array');
       expect (res.length).to.equal (2);
       
-      done ();
+      return done ();
     });
   });
 });

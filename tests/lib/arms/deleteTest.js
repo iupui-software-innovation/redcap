@@ -1,13 +1,8 @@
 'use strict';
 
 const expect = require ('chai').expect;
-const config = {
-  host: 'redcap.uits.iu.edu',
-  path: '/api/',
-  token: process.env.REDCAP_API_KEY
-};
+const config = require ('../../config');
 const utils = require ('../../../lib/utils') (config);
-
 const deleteModule = require ('../../../lib/arms/delete.js');
 
 describe ('arms#delete', function () {
@@ -22,10 +17,10 @@ describe ('arms#delete', function () {
   });
 
   it ('should give an error if "arms" is missing', function (done) {
-    deleteArms ({}, function (error, res) {
-      expect (error).to.be.an ('object').that.has.property ('error');
+    deleteArms ({}, function (err, res) {
+      expect (err).to.be.an ('object').that.has.property ('error');
       expect (res).to.be.null;
-      done ();
+      return done ();
     });
   });
 
@@ -36,14 +31,11 @@ describe ('arms#delete', function () {
       arms: ['3', '4']
     };
 
-    deleteArms (params, function (error, res) {
-      if (error) {
-        console.log (error);
-      }
-
-      expect (error).to.be.null;
+    deleteArms (params, function (err, res) {
+      if (err)
+        return done (err);
       expect (res).to.be.a ('number');
-      done ();
+      return done ();
     });
   });
 });
