@@ -16,14 +16,27 @@ describe ('arms#exportarms', function () {
     expect (exportArms).to.be.a ('function');
   });
 
-  it ('should return an array of arms', function (done) {
+  it ('should return arms', function (done) {
+    exportArms (function (err, res) {
+      if (err)
+        return done (err);
+
+      expect (res).to.be.an ('array');
+      expect (res[0]).to.have.property ('arm_num');
+      return done ();
+    });
+  });
+
+  it ('should return specified arms', function (done) {
     var params = {
       arms: ['1']
     };
     exportArms (params, function (err, res) {
       if (err)
         return done (err);
+
       expect (res).to.be.a ('array').of.length (1);
+      expect (res[0]).to.have.property ('arm_num');
       return done ();
     });
   });
