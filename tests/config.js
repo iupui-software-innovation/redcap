@@ -7,7 +7,6 @@ function getToken () {
     token = process.env.REDCAP_API_TOKEN;
   }
 
-  console.log (token);
   if (token === undefined) {
     throw "API token missing from environment variables";
   }
