@@ -18,7 +18,7 @@ describe ('users#exportInfo', function () {
   });
 
   it ('should return project info', function (done) {
-    exportFunc ({}, function (err, res) {
+    exportFunc (function (err, res) {
       if (err)
         return done (err);
 

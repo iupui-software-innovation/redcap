@@ -18,11 +18,11 @@ describe ('projects#exportInfo', function () {
   it ('should return project info', function (done) {
     var exportFunc = exportInfo (utils);
 
-    exportFunc ({}, function (err, res) {
-      expect (err).to.be.null;
-      expect (res).to.not.be.empty;
+    exportFunc (function (err, res) {
+      if (err)
+        return done (err);
       expect (res.project_title).to.equal ('REDCap.js (Test)');
-      done ();
+      return done ();
     });
   });
 });
