@@ -18,7 +18,7 @@ describe ('instruments#exportInfo', function () {
   it ('should return an array of instruments', function (done) {
     var exportInfoFunc = exportInfo (utils);
 
-    exportInfoFunc (null, function (err, res) {
+    exportInfoFunc (function (err, res) {
       if (err)
         return done (err);
 
