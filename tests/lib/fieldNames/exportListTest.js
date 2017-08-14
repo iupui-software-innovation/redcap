@@ -2,11 +2,7 @@
 
 const expect = require ('chai').expect;
 const exportModule = require ('../../../lib/fieldNames/exportList.js');
-const config = {
-  host: 'redcap.uits.iu.edu',
-  path: '/api/',
-  token: process.env.REDCAP_API_KEY
-};
+const config = require ('../../config.js');
 const utils = require ('../../../lib/utils') (config);
 
 describe ('fieldNames#exportList', function () {
@@ -20,19 +16,21 @@ describe ('fieldNames#exportList', function () {
   });
 
   it ('should return a list of export/import field names', function (done) {
-    exportList ({}, function (error, res) {
-      expect (error).to.be.null;
+    exportList ({}, function (err, res) {
+      if (err)
+        return done (err);
       expect (res).to.be.an ('array');
-      done ();
+      return done ();
     });
   });
 
   it ('should return a single name if a field name is given', function (done) {
-    exportList ({field: 'record_id'}, function (error, res) {
-      expect (error).to.be.null;
+    exportList ({field: 'record_id'}, function (err, res) {
+      if (err)
+        return done (err);
       expect (res).to.be.an ('array');
       expect (res.length).to.equal (1);
-      done ();
+      return done ();
     });
   });
 });

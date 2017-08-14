@@ -1,11 +1,7 @@
 'use strict';
 
 const expect = require ('chai').expect;
-const config = {
-  host: 'redcap.uits.iu.edu',
-  path: '/api/',
-  token: process.env.REDCAP_API_KEY
-};
+const config = require ('../../config.js');
 const utils = require ('../../../lib/utils') (config);
 
 const exportInfo = require ('../../../lib/users/export.js');
