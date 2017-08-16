@@ -3,6 +3,7 @@
 const expect = require ('chai').expect;
 const config = require ('../../config.js');
 const utils = require ('../../../lib/utils') (config);
+const fs = require ('fs');
 
 const exportModule = require ('../../../lib/metadata/export.js');
 
@@ -17,16 +18,14 @@ describe ('metadata#export', function () {
     expect (exportMetadata).to.be.a ('function');
   });
 
-  var params = {
-    forms: ['test_followup_survey'],
-    fields: ['testfile']
-  };
   it ('should return metadata', function (done) {
-    exportMetadata (params, function (err, res) {
+    exportMetadata (function (err, res) {
       if (err)
         return done (err);
 
       expect (res).to.be.an ('array');
+
+      fs.writeFileSync ('./metadata.txt', JSON.stringify(res));
       return done ();
     });
   });
