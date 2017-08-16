@@ -22,21 +22,9 @@ describe ('records#import', function () {
       data: {}
     }
     importRecord (params, function(err, res) {
-      expect (err).to.be.an ('object').that.has.property ('error').that.equals ('Required parameter missing: type');
-      expect (res).to.be.null;
-      done ();
-    });
-  });
-
-  it ('should generate an error if "overwriteBehavior" is missing from parameters', function (done) {
-    var params = {
-      type: 'flat',
-      data: {}
-    }
-    importRecord (params, function (err, res) {
-      expect (err).to.be.an ('object').that.has.property ('error').that.equals ('Required parameter missing: overwriteBehavior');
-      expect (res).to.be.null;
-      done ();
+      expect (err).to.be.an ('Error');
+      expect (err.message).to.equal ('Required parameter missing: type');
+      return done ();
     });
   });
 
@@ -51,14 +39,11 @@ describe ('records#import', function () {
         overwriteBehavior: 'normal'
       };
 
-      importRecord (opts, function (error, res) {
-        if (error) {
-          console.log (error);
-        }
-
-        expect (error).to.be.null;
+      importRecord (opts, function (err, res) {
+        if (err)
+          return done (err);
         expect (res).to.be.an ('object').that.has.property ('count').that.equals (1);
-        done ();
+        return done ();
       });
     });
 
@@ -81,11 +66,12 @@ describe ('records#import', function () {
         returnContent: 'ids'
       };
 
-      importRecord (opts, function (error, res) {
-        expect (error).to.be.null;
+      importRecord (opts, function (err, res) {
+        if (err)
+          return done (err);
         expect (res).to.be.an ('array');
         expect (res.length).to.equal (2);
-        done ();
+        return done ();
       });
     });
   });

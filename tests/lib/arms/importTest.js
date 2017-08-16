@@ -18,8 +18,7 @@ describe ('arms#import', function () {
 
   it ('should give an error if "data" is missing', function (done) {
     importArms ({}, function (err, res) {
-      expect (err).to.be.an ('object').that.has.property ('error');
-      expect (res).to.be.null;
+      expect (err).to.be.an ('Error');
       return done ();
     });
   });

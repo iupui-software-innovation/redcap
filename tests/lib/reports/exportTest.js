@@ -18,18 +18,20 @@ describe ('reports#exportReports', function () {
   });
 
   it ('should give an error if "report_id" is missing', function (done) {
-    exportReports ({}, function (error, res) {
-      expect (error).to.be.an ('object').that.has.property ('error');
-      expect (res).to.be.null;
-      done ();
+    exportReports ({}, function (err, res) {
+      expect (err).to.be.an ('Error');
+      return done ();
     });
   });
 
   it ('should return reports', function (done) {
-    exportReports ({report_id: 20794}, function (error, res) {
-      expect (error).to.be.null;
-      expect (res).to.not.be.null;
-      done ();
+    exportReports ({report_id: 20794}, function (err, res) {
+      if (err)
+        return done (err);
+
+      expect (res).to.be.an ('array');
+      expect (res[0]).to.have.property ('record_id');
+      return done ();
     });
   });
 });
