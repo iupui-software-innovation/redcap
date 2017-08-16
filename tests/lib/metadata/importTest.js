@@ -1,8 +1,6 @@
 /* 
  When testing import, ALWAYS make a snapshot of the current
- data dictionary before importing to prevent data loss. All
- tests are working, but this code will be commented out to
- protect any data currently in the dictionary.
+ data dictionary before importing to prevent data loss.
  */
 
 'use strict';
