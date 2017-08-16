@@ -16,10 +16,11 @@ describe ('projects#generateNextRecordName', function () {
   });
 
   it ('should provide the next record name', function (done) {
-    generateName (function (error, msg) {
-      expect (error).to.be.null;
+    generateName (function (err, msg) {
+      if (err)
+        return done (err);
       expect (msg).to.be.a ('number');
-      done ();
+      return done ();
     });
   });
 });

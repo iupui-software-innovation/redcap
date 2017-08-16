@@ -17,10 +17,10 @@ describe ('instruments#importMappings', function () {
   });
 
   it ('should provide an error if no values are passed', function (done) {
-    importMappings ({data: null}, function (err, res) {
-      expect (err).to.not.be.null;
-      expect (res).to.be.null;
-      done ();
+    importMappings ({}, function (err, res) {
+      expect (err).to.be.an ('Error');
+      expect (err.message).to.equal ('Required parameter missing: data');
+      return done ();
     });
   });
 
