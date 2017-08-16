@@ -5,6 +5,8 @@ const config = require ('../../config');
 const utils = require ('../../../lib/utils') (config);
 const deleteModule = require ('../../../lib/arms/delete.js');
 
+require ('./importTest.js');
+
 describe ('arms#delete', function () {
   it ('should be a function', function () {
     expect (deleteModule).to.be.a ('function');
