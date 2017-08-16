@@ -16,18 +16,6 @@ describe ('records#import', function () {
     expect (importRecord).to.be.a ('function');
   });
 
-  it ('should generate an error if "type" is missing from parameters', function (done) {
-    var params = {
-      overwriteBehavior: 'normal',
-      data: {}
-    }
-    importRecord (params, function(err, res) {
-      expect (err).to.be.an ('Error');
-      expect (err.message).to.equal ('Required parameter missing: type');
-      return done ();
-    });
-  });
-
   describe ('should import a record and return number of imported records', function () {
     this.timeout (4000);
     it ('for one record', function (done) {

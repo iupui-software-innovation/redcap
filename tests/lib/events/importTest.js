@@ -17,15 +17,6 @@ describe ('events#importEvents', function () {
     expect (importEvents).to.be.a ('function');
   });
 
-  it ('should produce an error if override is not defined in params', function (done) {
-    importEvents({data: "test"}, function (err, res) {
-      expect (err).to.be.an ('Error');
-      expect (err.message).to.equal ('Required parameter missing: override');
-
-      return done ();
-    });
-  });
-
   it ('should produce an error if data is not defined in params', function (done) {
     importEvents({ override:0 }, function (err, res) {
       expect (err).to.be.an ('Error');
