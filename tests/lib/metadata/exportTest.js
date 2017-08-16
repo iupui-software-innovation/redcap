@@ -22,9 +22,9 @@ describe ('metadata#export', function () {
     fields: ['testfile']
   };
   it ('should return metadata', function (done) {
-    exportMetadata (params, function (error, res) {
-      if (error)
-        return done (error);
+    exportMetadata (params, function (err, res) {
+      if (err)
+        return done (err);
 
       expect (res).to.be.an ('array');
       return done ();
