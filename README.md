@@ -6,13 +6,13 @@ simple, lightweight client module for REDCap
 [![Travis](https://img.shields.io/travis/rust-lang/rust.svg)]()
 
 
-# Installation
+## Installation
 
     npm install redcap --save
    
-# Getting Started
+## Getting Started
 
-# Next Steps
+## Next Steps
 
 For more information on how redcap.js works and how you can implement it into your 
 own project, check out the [wiki](https://github.com/iupui-software-innovation/redcap/wiki).
