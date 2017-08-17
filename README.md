@@ -8,7 +8,7 @@ simple, lightweight client module for REDCap
 
 # Installation
 
-   npm install redcap --save
+    npm install redcap --save
    
 # Getting Started
 
