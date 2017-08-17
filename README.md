@@ -9,7 +9,7 @@ simple, lightweight client module for REDCap
 ## Features
 
 * **Easy to use** module-based api
-* **Callback architecture design** for easy integration
+* **Callback architecture** for easy integration
 * **Standardized design** to provide consist look and feel across REDCap modules
 
 ## Installation
