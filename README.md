@@ -6,6 +6,12 @@ simple, lightweight client module for REDCap
 [![Travis](https://img.shields.io/travis/rust-lang/rust.svg)]()
 
 
+## Features
+
+* **Easy to use** module-based api
+* **Callback architecture design** for easy integration
+* **Standardized design** to provide consist look and feel across REDCap modules
+
 ## Installation
 
     npm install redcap --save
