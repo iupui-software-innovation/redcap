@@ -1,7 +1,7 @@
 {
   "name": "redcap",
   "version": "0.2.0",
-  "description": "NodeJS client module for REDCap",
+  "description": "simple, lightweight client module for REDCap",
   "main": "./lib/index.js",
   "scripts": {
     "test": "mocha --recursive tests/lib --reporter spec"
