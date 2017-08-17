@@ -1,6 +1,6 @@
 {
   "name": "redcap",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "simple, lightweight client module for REDCap",
   "main": "./lib/index.js",
   "scripts": {
