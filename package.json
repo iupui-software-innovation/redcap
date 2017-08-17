@@ -1,5 +1,5 @@
 {
-  "name": "redcap.js",
+  "name": "redcap",
   "version": "0.2.0",
   "description": "A module for interacting with REDCap",
   "main": "./lib/index.js",

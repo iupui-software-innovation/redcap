@@ -1,11 +1,7 @@
 'use strict';
 
 const expect = require ('chai').expect;
-const config = {
-  host: 'redcap.uits.iu.edu',
-  path: '/api/',
-  token: process.env.REDCAP_API_KEY
-}
+const config = require ('../../config.js');
 const utils = require ('../../../lib/utils') (config);
 const deleteModule = require ('../../../lib/records/delete.js');
 
@@ -23,12 +19,11 @@ describe ('records#deleteRecords', function () {
   });
 
   it ('should return an error if record ids are not provided', function (done) {
-    deleteRecords ({}, function (error, res) {
-      expect (error).to.be.an ('object').that.has.property ('error');
-      expect (error.error).to.equal ('Required parameter missing: records');
-      expect (res).to.be.null;
+    deleteRecords ({}, function (err, res) {
+      expect (err).to.be.an ('Error');
+      expect (err.message).to.equal ('Required parameter missing: records');
       
-      done ();
+      return done ();
     });
   });
 
@@ -39,15 +34,12 @@ describe ('records#deleteRecords', function () {
       records: recs
     }
 
-    deleteRecords (body, function (error, res) {
-      if (error) {
-        console.log (error);
-      }
-
-      expect (error).to.be.null;
+    deleteRecords (body, function (err, res) {
+      if (err)
+        return done (err);
       expect (res).to.be.a ('number').that.equals (1);
 
-      done ();
+      return done ();
     });
   });
 });

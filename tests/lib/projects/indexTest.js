@@ -12,8 +12,8 @@ describe ('projects', function () {
   var projects = projectsModule (utils);
 
   var keys = [
-    'exportInfo',
-    'importInfo',
+    'export',
+    'import',
     'generateNextRecordName'
   ];
 
@@ -23,13 +23,13 @@ describe ('projects', function () {
 
   describe ('#exportInfo', function () {
     it ('should be a function', function () {
-      expect (projects.exportInfo).to.be.a ('function');
+      expect (projects.export).to.be.a ('function');
     });
   });
 
   describe ('#importInfo', function () {
     it ('should be a function', function () {
-      expect (projects.importInfo).to.be.a ('function');
+      expect (projects.import).to.be.a ('function');
     });
   });
 

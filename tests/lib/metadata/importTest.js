@@ -1,21 +1,16 @@
 /* 
  When testing import, ALWAYS make a snapshot of the current
- data dictionary before importing to prevent data loss. All
- tests are working, but this code will be commented out to
- protect any data currently in the dictionary.
+ data dictionary before importing to prevent data loss.
  */
 
-/*
 'use strict';
 
 const expect = require ('chai').expect;
 const importInfoModule = require ('../../../lib/metadata/import.js');
 
-const config = {
-  host: 'redcap.uits.iu.edu',
-  path: '/api/',
-  token: process.env.REDCAP_API_KEY
-};
+require ('./exportTest.js');
+
+const config = require ('../../config.js');
 
 const utils = require ('../../../lib/utils') (config);
 
@@ -31,24 +26,22 @@ describe ('metadata#import', function () {
   });
 
   it ('should provide an error if no values are passed', function (done) {
-    importInfo ({data:{}}, function (err, res) {
-      expect (err).to.be.an ('object').that.has.property ('error');
-      expect (res).to.be.null;
-      done ();
+    importInfo ({}, function (err, res) {
+      expect (err).to.be.an ('Error');
+      return done ();
     });
   });
 
-  describe ('should return the number of values updated', function () {
-    it ('for 1 update', function (done) {
-      // Please put the most recent metadata here when testing this
-      var data = [];
-      importInfo ({data: data}, function (err, res) {
-        console.log (err);
-        expect (err).to.be.null;
-        expect (res).to.be.a ('number');
-        done ();
-      });
+  it ('should return the number of values updated', function (done) {
+    const fs = require ('fs');
+    var data = JSON.parse (fs.readFileSync ('./metadata.txt'));
+    expect (data).to.be.an ('array');
+
+    importInfo ({data: data}, function (err, res) {
+      if (err)
+        return done (err);
+      expect (res).to.be.a ('number');
+      return done ();
     });
   });
 });
-*/

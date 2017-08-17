@@ -10,9 +10,9 @@ describe ('records', function () {
   });
 
   var keys = [
-    'exportRecords',
-    'importRecords',
-    'deleteRecords'
+    'export',
+    'import',
+    'delete'
   ];
 
   var records = recordsModule (utils);
@@ -21,14 +21,14 @@ describe ('records', function () {
   });
 
   it ('exportRecords should be a function', function () {
-    expect (records.exportRecords).to.be.a ('function');
+    expect (records.export).to.be.a ('function');
   });
 
   it ('importRecords should be a function', function () {
-    expect (records.importRecords).to.be.a ('function');
+    expect (records.import).to.be.a ('function');
   });
 
   it ('deleteRecords should be a function', function () {
-    expect (records.deleteRecords).to.be.a ('function');
+    expect (records.delete).to.be.a ('function');
   });
 });

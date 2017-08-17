@@ -1,21 +1,16 @@
 'use strict';
 
 const expect = require ('chai').expect;
+const config = require ('../../config.js');
+const utils = require ('../../../lib/utils') (config);
 const deleteInfo = require ('../../../lib/files/delete.js');
 
-require ('./importTest.js');
+require ('./exportTest.js');
 
 describe ('files#delete', function () {
   it ('should be a function', function () {
     expect (deleteInfo).to.be.a ('function');
   });
-
-  const config = {
-    host: 'redcap.uits.iu.edu',
-    path: '/api/',
-    token: process.env.REDCAP_API_KEY
-  };
-  const utils = require ('../../../lib/utils') (config);
 
   it ('should return a function', function () {
     var deleteFunc = deleteInfo (utils);
@@ -30,12 +25,10 @@ describe ('files#delete', function () {
       repeat_instance: '1'
     };
     deleteFunc (params, function (err, res) {
-      if (err) {
-        console.log (err);
-      }
-
+      if (err) 
+        return done (err);
       expect (err).to.be.null;
-      done ();
+      return done ();
     });
   });
 });

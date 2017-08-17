@@ -17,7 +17,7 @@ describe ('reports', function () {
 
   var reports = reportModule (utils);
 
-  var keys = [ 'exportReports' ];
+  var keys = [ 'export' ];
 
   it ('should return an object with keys to methods', function () {
     expect (reports).to.be.an ('object').that.has.keys (keys);
@@ -25,7 +25,7 @@ describe ('reports', function () {
 
   describe ('reports#exportReports', function () {
     it ('should be a function', function () {
-      expect (reports.exportReports).to.be.a ('function');
+      expect (reports.export).to.be.a ('function');
     });
   });
 });

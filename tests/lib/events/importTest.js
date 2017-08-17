@@ -17,23 +17,12 @@ describe ('events#importEvents', function () {
     expect (importEvents).to.be.a ('function');
   });
 
-  it ('should produce an error if override is not defined in params', function (done) {
-    importEvents({data: "test"}, function (error, res) {
-      expect (error).to.be.an ('object').that.has.property ('error');
-      expect (error.error).to.equal ('Required parameter missing: override');
-      expect (res).to.be.null;
-
-      done ();
-    });
-  });
-
   it ('should produce an error if data is not defined in params', function (done) {
-    importEvents({ override:0 }, function (error, res) {
-      expect (error).to.be.an ('object').that.has.property ('error');
-      expect (error.error).to.equal ('Required parameter missing: data');
-      expect (res).to.be.null;
+    importEvents({ override:0 }, function (err, res) {
+      expect (err).to.be.an ('Error');
+      expect (err.message).to.equal ('Required parameter missing: data');
 
-      done ();
+      return done ();
     });
   });
 
@@ -52,11 +41,12 @@ describe ('events#importEvents', function () {
         override: 0
       };
 
-      importEvents (params, function (error, res) {
-        expect (error).to.be.null;
+      importEvents (params, function (err, res) {
+        if (err)
+          return done (err);
         expect (res).to.be.a ('number').that.equals(1);
 
-        done ();
+        return done ();
       });
     });
 
@@ -79,11 +69,12 @@ describe ('events#importEvents', function () {
         override: 0
       };
 
-      importEvents (params, function (error, res) {
-        expect (error).to.be.null;
+      importEvents (params, function (err, res) {
+        if (err)
+          return done (err);
         expect (res).to.be.a ('number').that.equals(2);
 
-        done ();
+        return done ();
       });
     });
   });

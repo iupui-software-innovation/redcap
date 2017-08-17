@@ -3,11 +3,7 @@
 const expect = require ('chai').expect;
 const postExport = require ('../../../lib/utils/post.js');
 
-const baseConfig = {
-  host: "redcap.uits.iu.edu",
-  path: "/api/",
-  token: process.env.REDCAP_API_KEY
-};
+const baseConfig = require ('../../config.js');
 
 if (baseConfig.token === "") {
   console.log ("Did you set the REDCAP_API_KEY environment variable before running the tests?");
@@ -84,10 +80,9 @@ describe ('utils#post', function () {
         token: "notoken"
       };
       var post = postExport (config);
-      post ({}, function (error, res) {
-        expect (error.errno).to.equal ("ECONNREFUSED");
-        expect (res).to.be.null;
-        done ();
+      post ({}, function (err, res) {
+        expect (err.errno).to.equal ("ECONNREFUSED");
+        return done ();
       });
     });
 
@@ -99,16 +94,17 @@ describe ('utils#post', function () {
       };
       var post = postExport (config);
       post ({}, function (err, res) {
-        expect (err).to.be.an ('object').that.has.property ('error');
-        done ();
+        expect (err).to.be.an ('Error');
+        
+        return done ();
       });
     });
 
     it ('should give an error if the postData was invalid', function (done) {
       var post = postExport (baseConfig);
       post ({}, function (err, res) {
-        expect (err).to.be.an ('object').that.has.property ('error');
-        done ();
+        expect (err).to.be.an ('Error');
+        return done ();
       });
     });
 
@@ -119,8 +115,8 @@ describe ('utils#post', function () {
       };
       var post = postExport (baseConfig);
       post (body, function (err, res) {
-        expect (err).to.be.an ('object').that.has.property ('error');
-        done ();
+        expect (err).to.be.an ('Error');
+        return done ();
       });
     });
 
@@ -132,26 +128,11 @@ describe ('utils#post', function () {
       };
       var post = postExport (baseConfig);
       post (body, function (err, res) {
-        expect (err).to.be.null;
+        if (err)
+          return done (err);
         expect (res).to.not.be.null;
-        done ();
+        return done ();
       });
     });
-
-    // This test breaks stuff and is terrible. It tries to run twice?
-    /*
-    it ('should give an error if the path was incorrect', function (done) {
-      var config = {
-        host: baseConfig.host,
-        path: "",
-        token: "notoken"
-      };
-      var post = postExport (config);
-      post ({}, function (err, res) {
-        expect (err).to.not.be.empty;
-        done ();
-      });
-    });
-    */
   });
 });

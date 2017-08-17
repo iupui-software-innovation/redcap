@@ -19,11 +19,11 @@ describe ('events#deleteEvents', function () {
   });
 
   it ('should produce an error if events is not defined in params', function (done) {
-    deleteEvents ({}, function (error, res) {
-      expect (error).to.be.an ('object').that.has.property ('error');
-      expect (error.error).to.equal ('Required parameter missing: events');
+    deleteEvents ({}, function (err, res) {
+      expect (err).to.be.an ('Error');
+      expect (err.message).to.equal ('Required parameter missing: events');
 
-      done ();
+      return done ();
     });
   });
 
@@ -39,14 +39,12 @@ describe ('events#deleteEvents', function () {
       events: events
     };
 
-    deleteEvents (params, function (error, res) {
-      if (error) {
-        console.log (error);
-      }
-      expect (error).to.be.null;
+    deleteEvents (params, function (err, res) {
+      if (err)
+        return done (err);
       expect (res).to.be.a ('number').that.equals (2);
 
-      done ();
+      return done ();
     });
   });
 });

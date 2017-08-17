@@ -2,18 +2,13 @@
 
 const expect = require ('chai').expect;
 const exportParticipants = require ('../../../lib/survey/exportParticipants.js');
+const config = require ('../../config.js');
+const utils = require ('../../../lib/utils') (config);
 
 describe ('survey#exportParticipants', function () {
   it ('should be a function', function () {
     expect (exportParticipants).to.be.a ('function');
   });
-
-  const config = {
-    host: 'redcap.uits.iu.edu',
-    path: '/api/',
-    token: process.env.REDCAP_API_KEY
-  };
-  const utils = require ('../../../lib/utils') (config);
 
   it ('should return a function', function () {
     var exportFunc = exportParticipants (utils);

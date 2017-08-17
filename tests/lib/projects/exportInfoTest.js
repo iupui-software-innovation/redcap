@@ -1,19 +1,14 @@
 'use strict';
 
 const expect = require ('chai').expect;
+const config = require ('../../config.js');
+const utils = require ('../../../lib/utils') (config);
 const exportInfo = require ('../../../lib/projects/exportInfo.js');
 
 describe ('projects#exportInfo', function () {
   it ('should be a function', function () {
     expect (exportInfo).to.be.a ('function');
   });
-
-  const config = {
-    host: 'redcap.uits.iu.edu',
-    path: '/api/',
-    token: process.env.REDCAP_API_KEY
-  };
-  const utils = require ('../../../lib/utils') (config);
 
   it ('should return a function', function () {
     var exportFunc = exportInfo (utils);
@@ -23,11 +18,11 @@ describe ('projects#exportInfo', function () {
   it ('should return project info', function (done) {
     var exportFunc = exportInfo (utils);
 
-    exportFunc ({}, function (err, res) {
-      expect (err).to.be.null;
-      expect (res).to.not.be.empty;
+    exportFunc (function (err, res) {
+      if (err)
+        return done (err);
       expect (res.project_title).to.equal ('REDCap.js (Test)');
-      done ();
+      return done ();
     });
   });
 });

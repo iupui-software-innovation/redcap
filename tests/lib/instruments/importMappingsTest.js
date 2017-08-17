@@ -1,14 +1,9 @@
 'use strict';
 
 const expect = require ('chai').expect;
-const importMappingsModule = require ('../../../lib/instruments/importMappings.js');
-
-const config = {
-  host: 'redcap.uits.iu.edu',
-  path: '/api/',
-  token: process.env.REDCAP_API_KEY
-};
+const config = require ('../../config');
 const utils = require ('../../../lib/utils') (config);
+const importMappingsModule = require ('../../../lib/instruments/importMappings.js');
 
 describe ('instruments#importMappings', function () {
   it ('should be a function', function () {
@@ -22,10 +17,10 @@ describe ('instruments#importMappings', function () {
   });
 
   it ('should provide an error if no values are passed', function (done) {
-    importMappings ({data: null}, function (err, res) {
-      expect (err).to.not.be.null;
-      expect (res).to.be.null;
-      done ();
+    importMappings ({}, function (err, res) {
+      expect (err).to.be.an ('Error');
+      expect (err.message).to.equal ('Required parameter missing: data');
+      return done ();
     });
   });
 
@@ -37,9 +32,11 @@ describe ('instruments#importMappings', function () {
         "form": "test_followup_survey"
       }];
       importMappings ({data: data}, function (err, res) {
-        expect (err).to.be.null;
+        if (err)
+          return done (err);
+
         expect (res).to.equal (1);
-        done ();
+        return done ();
       });
     });
     
@@ -58,10 +55,11 @@ describe ('instruments#importMappings', function () {
       ];
 
       importMappings ({ data: data}, function (err, res) {
-        expect (err).to.be.null;
-        expect (res).to.equal (2);
+        if (err)
+          return done (err);
 
-        done ();
+        expect (res).to.equal (2);
+        return done ();
       });
     });
   });
