@@ -1,7 +1,7 @@
 {
   "name": "redcap",
   "version": "0.2.0",
-  "description": "A module for interacting with REDCap",
+  "description": "NodeJS client module for REDCap",
   "main": "./lib/index.js",
   "scripts": {
     "test": "mocha --recursive tests/lib --reporter spec"
@@ -17,8 +17,8 @@
   "keywords": [
     "redcap"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "Center for Software and Innovation",
+  "license": "Apache-2.0",
   "devDependencies": {
     "mocha": "^3.4.2"
   }
