@@ -4,7 +4,7 @@
   "description": "simple, lightweight client module for REDCap",
   "main": "./lib/index.js",
   "scripts": {
-    "test": "mocha --recursive tests/lib --reporter spec"
+    "test": "mocha --recursive tests --reporter spec"
   },
   "repository": {
     "type": "git",
